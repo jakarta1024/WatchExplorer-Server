@@ -1,0 +1,97 @@
+<html>
+<head>
+<script type="text/javascript">
+$(document).ready(function(){
+	var state = WS.platformManager.getState();
+	$('#date-intro span').html(WS.format(new Date(), 'yyyy年MM月dd日'));
+	if (state === WS.PlatformAdmin.STATES.APPROVING_STORES) {
+        $('#approved_container').hide();
+        $('#approving_container table').dataTable({
+            "bProcessing": false,
+            "sAjaxSource": "platform/admin/getStores?approving=true&page=false",
+            "aoColumnDefs": [
+                {
+                    "mRender": function (data, type, row) {
+                        return '<input type="checkbox" value="false" /> ';
+                    },
+                    "bSortable": false,
+                    "bSearchable": false,
+                    "aTargets": [0]
+                },{
+                    "mRender": function (data, type, row) {
+                        return '<a href="./platforms/ApprovingStore.jsp?storeId=' + row[0] + '" rel="modal">' + data + '</a>';
+                    },
+                    "aTargets": [1]
+                }, {
+                    "mRender": function (data, type, row) {
+                        return '<a href="./WatchPreview.jsp" rel="modal">' + data + '</a>';
+                    },
+                    "aTargets": [3]
+                }, {
+                    "mRender": function (data, type, row) {
+                        return '<a href="./platforms/StoreAdminInfo.jsp?founderId=' + row[5] + '" class="ico del">删除</a><a href="store/admin/home?ctrl=updatewatch&wid=' + row[0] + '" class="ico edit">编辑</a>';
+                    },
+                    "bSortable": false,
+                    "bSearchable": false,
+                    "aTargets": [5]
+                }
+                             ],
+                "fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
+                	$('a[rel*=modal]', nRow).facebox();
+                }
+        });
+    } else {
+        $('#approving_container').hide();
+        $('#approved_container table').dataTable({
+            "bProcessing": false,
+            "sAjaxSource": "platform/admin/getStores?approving=false&page=false"
+        });
+    }
+});
+</script>
+</head>
+<body>
+<h2>请蹂躏这些表店吧，无敌的管理员</h2>
+    <p class="page-intro" id="date-intro">今天是<span></span></p>
+    <div class="clear"></div><br />
+    <div id="approving_container">
+        <p class="page-intro">现在未审核的表店数<span>(3)</span></p>
+        <table>
+            <thead>
+                <tr>
+	                <th>
+	                  <input class="check-all" type="checkbox" />
+	                </th>
+	                <th>表店名</th>
+	                <th>品牌</th>
+	                <th>申请人</th>
+	                <th>申请时间</th>
+	                <th>操作</th>
+	            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <div id = "approved_container">
+        <p class="page-intro">现在已上架的表店数<span>(2)</span></p>
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                      <input class="check-all" type="checkbox" />
+                    </th>
+                    <th>表店名</th>
+                    <th>品牌</th>
+                    <th>投诉数</th>
+                    <th>创建人</th>
+                    <th>创建时间</th>
+                    <th>审批时间</th>
+                    <th>修改时间</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</body>
+</html>

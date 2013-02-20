@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 24, 2012 10:43:08 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.watchshow.platform.domain.PlatformBulletin" table="T_BULLETINS" lazy="false">
+           <!-- ID and Version mappings -->
+		<id name="identifier" type="java.lang.Long" column="BULLETIN_ID">
+      		<generator class="increment"/>
+    	</id>
+    	<version name="version" column="VERSION" type="java.lang.Integer"/>
+    	
+        <property name="title" type="java.lang.String">
+            <column name="TITLE" />
+        </property>
+        <property name="subtitle" type="java.lang.String">
+            <column name="SUBTITLE" />
+        </property>
+        <property name="content" type="java.lang.String">
+            <column name="CONTENT" />
+        </property>
+        <property name="kind" type="java.lang.String">
+            <column name="KIND" />
+        </property>
+        <property name="isActive" type="java.lang.Boolean">
+            <column name="IS_ACTIVE" />
+        </property>
+        <property name="publishTime" type="java.sql.Timestamp">
+            <column name="PUBLISH_TIME" />
+        </property>
+        
+         <property name="effectiveTime" type="java.lang.Integer">
+            <column name="EFFECTIVE_TIME" />
+        </property>
+        <many-to-one name="publisher" 
+        			column="PLATADMIN_ID" 
+        			class="com.watchshow.platform.domain.PlatformAdministrator" 
+        			fetch="select"/>
+        			
+        <set name="logs" table="T_PLATADMIN_LOGS" inverse="true" lazy="extra">
+            <key>
+                <column name="BULLETIN_ID" />
+            </key>
+            <one-to-many class="com.watchshow.platform.domain.Watch" />
+        </set>
+        
+
+    </class>
+</hibernate-mapping>

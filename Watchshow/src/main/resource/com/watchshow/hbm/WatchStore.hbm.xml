@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 3, 2012 5:34:56 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class lazy="false" name="com.watchshow.platform.domain.WatchStore"
+		table="T_WATCH_STORES">
+		<!-- ID and Version mapping -->
+		<id column="WATCHSTORE_ID" name="identifier" type="java.lang.Long">
+			<generator class="increment" />
+		</id>
+		<version column="VERSION" generated="never" name="version"
+			type="java.lang.Integer" />
+		<!-- Attributes -->
+		<property name="name" type="java.lang.String">
+			<column length="45" name="NAME" not-null="true" />
+		</property>
+		<!-- property name="brand" type="java.lang.String">
+			<column length="45" name="BRAND" not-null="true" />
+		</property -->
+		<property name="rate" type="java.lang.Float">
+			<column name="RATE" />
+		</property>
+		<property name="credits" type="java.lang.Float">
+			<column name="CREDITS" />
+		</property>
+		<property name="address" type="java.lang.String">
+			<column name="ADDRESS" />
+		</property>
+		<property name="longitude" type="java.lang.String">
+			<column name="LONGITUDE" />
+		</property>
+		<property name="latitude" type="java.lang.String">
+			<column name="LATITUDE" />
+		</property>
+		<property name="phoneNumber" type="java.lang.String">
+			<column name="PHONE" />
+		</property>
+		<property name="website" type="java.lang.String">
+			<column length="45" name="WEBSITE" />
+		</property>
+		<property name="fax" type="java.lang.Long">
+			<column length="11" name="FAX" />
+		</property>
+		  <property name="postcode" type="java.lang.Integer">
+            <column name="POSTCODE" />
+        </property>
+		<property name="description" type="java.lang.String">
+			<column name="DESCRIPTION" />
+		</property>
+		<property name="descResourceURL" type="java.lang.String">
+			<column name="DESC_RESOURCE_URL" />
+		</property>
+		<property name="registerTime" type="java.sql.Timestamp">
+			<column name="REGISTER_TIME" not-null="true" />
+		</property>
+		<property name="foundTime" type="java.sql.Date">
+			<column name="FOUND_TIME" />
+		</property>
+		<property name="province" type="java.lang.String">
+			<column name="PROVINCE" />
+		</property>
+		  <property name="city" type="java.lang.String">
+            <column name="CITY" />
+        </property>
+            <property name="district" type="java.lang.String">
+            <column name="DISTRICT" />
+        </property>
+		<property name="weiboAccount" type="java.lang.String">
+            <column name="WEIBO" />
+        </property>
+                <property name="QQAccount" type="java.lang.String">
+            <column name="QQ" />
+        </property>
+        <property name="renrenAccount" type="java.lang.String">
+            <column name="RENREN" />
+        </property>
+        <property name="gplusAccount" type="java.lang.String">
+            <column name="GPLUS" />
+        </property>
+        <property name="twitterAccount" type="java.lang.String">
+            <column name="TWITTER" />
+        </property>
+        <property name="facebookAccount" type="java.lang.String">
+            <column name="FACEBOOK" />
+        </property>
+        <property name="authorised" type="java.lang.Boolean">
+        	<column name="AUTHORISED"/>
+        </property>
+		<!-- Relationships one-to-many -->
+		<set inverse="true" table="T_STORE_ADMINS" cascade="save-update" name="admins" lazy="extra">
+			<key>
+				<column name="STORE_ID" />
+			</key>
+			<one-to-many class="com.watchshow.platform.domain.StoreAdministrator" />
+		</set>
+		<set inverse="true" table="T_WATCHES" cascade="save-update" name="watches" lazy="extra">
+			<key>
+				<column name="STORE_ID" />
+			</key>
+			<one-to-many class="com.watchshow.platform.domain.Watch" />
+		</set>
+		<set inverse="true" table="T_VISITING_HISTORIES" cascade="save-update" name="visitingHistories" lazy="extra">
+			<key>
+				<column name="STORE_ID" not-null="true" />
+			</key>
+			<one-to-many class="com.watchshow.platform.domain.VisitingHistory" />
+		</set>
+		
+		<many-to-one name="brand"
+        			class="com.watchshow.platform.domain.WatchBrand"
+        			cascade="none"
+        			fetch="select">
+            <column name="BRAND_ID" not-null="true"/>
+        </many-to-one>
+        
+	</class>
+</hibernate-mapping>

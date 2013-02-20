@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 3, 2012 5:34:56 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.watchshow.platform.domain.StoreAdminHistory" table="T_ADMIN_HISTORIES" lazy="false">
+         <!-- ID and Version mappings -->
+		<id name="identifier" type="java.lang.Long" column="HISTORY_ID">
+      		<generator class="increment"/>
+    	</id>
+    	<version name="version" column="VERSION" type="java.lang.Integer"/>
+    	
+        <!-- Attributes -->
+        <property name="timestamp" type="java.sql.Timestamp">
+            <column name="TIMESTAMP" not-null="true"/>
+        </property>
+        <property name="IPAddress" type="java.lang.String">
+            <column name="IP_ADDRESS" length="45" not-null="true"/>
+        </property>
+        <property name="comments" type="java.lang.String">
+            <column name="COMMENTS" length="256" not-null="true"/>
+        </property>
+         <property name="action" type="java.lang.String">
+            <column name="ACTION" length="45"/>
+        </property>
+        
+        <!-- Relationship mappings -->
+        <!-- This relationship should be one-one type-->
+        <many-to-one name="publication" 
+        			class="com.watchshow.platform.domain.Publication"
+        			cascade="save-update"
+        			fetch="select">
+            <column name="PUBLICATION_ID" not-null="false"/>
+        </many-to-one>
+        
+        <many-to-one name="operatedWatch" 
+        			class="com.watchshow.platform.domain.Watch"
+        			fetch="select"
+        			cascade="save-update">
+        	<column name="OPERTED_WATCH_ID" />
+        </many-to-one>
+        <many-to-one name="owner" 
+        			class="com.watchshow.platform.domain.StoreAdministrator" 
+        			fetch="select"
+        			cascade="save-update"
+        			>
+            <column name="ADMIN_ID" />
+        </many-to-one>
+        <!-- many-to-one name="store" 
+        			class="com.watchshow.platform.domain.WatchStore" 
+        			fetch="select"
+        			cascade="save-update">
+            <column name="STORE_ID" />
+        </many-to-one -->
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,51 @@
+.image_preview {
+	width: 100%;
+}
+
+.image_preview .thumb_unit {
+	position: relative;
+	width: 100px;
+	height: 100px;
+	display: inline-block;
+}
+
+.image_preview .thumb_view {
+	position: absolute;
+    left: 0;
+    top: 0;
+    align: center;
+}
+
+.image_preview .thumb_delete {
+	position: absolute;
+    right: 0;
+    top: 0;
+    display: none;
+}
+
+.image_preview .thumb_input_button {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100px;
+    height: 100px;
+    padding: 0;
+    border-width: 0px;
+    opacity: 0;
+}
+
+.image_preview .preview_unit {
+    width: 100%;
+    display: none;
+    text-align: center;
+}
+
+.image_preview .preview_view {
+	margin: 2px auto;
+	border: solid;
+    border-width: 1px;
+}
+
+.image_preview .delete_tag {
+	display: none;
+}

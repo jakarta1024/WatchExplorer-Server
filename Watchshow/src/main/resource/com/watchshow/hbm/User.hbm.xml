@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 3, 2012 5:34:56 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.watchshow.platform.domain.User" table="T_USERS" lazy="false">
+         <!-- ID and Version mappings -->
+		<id name="identifier" type="java.lang.Long" column="USER_ID">
+      		<generator class="increment"/>
+    	</id>
+    	<version name="version" column="VERSION" type="java.lang.Integer"/>
+    	
+        <!-- Attributes mapping -->
+        <property name="userName" type="java.lang.String">
+            <column name="USER_NAME" length="16" not-null="true" unique="true"/>
+        </property>
+        <property name="verifyEmail" type="java.lang.String">
+            <column name="VERIFY_EMAIL" length="128" not-null="true" unique="true"/>
+        </property>
+        <property name="password" type="java.lang.String">
+            <column name="PASSWORD" length="16" not-null="true"/>
+        </property>
+        <property name="passwordMD5" type="java.lang.String">
+            <column name="PASSWORD_MD5" length="32"/>
+        </property>
+        <property name="sex" type="java.lang.Character">
+            <column name="SEX" />
+        </property>
+        <property name="birthday" type="java.sql.Date">
+            <column name="BIRTHDAY" />
+        </property>
+        <property name="isMarried" type="java.lang.Boolean" access="field">
+            <column name="IS_MARRIED" />
+        </property>
+        <property name="avatarURL" type="java.lang.String">
+            <column name="AVATAR_URL" />
+        </property>
+        <property name="credits" type="java.lang.Integer">
+            <column name="CREDITS" />
+        </property>
+        <property name="phoneNumber" type="java.lang.String">
+            <column name="PHONE" />
+        </property>
+        <property name="registerTime" type="java.sql.Timestamp">
+            <column name="REGISTER_TIME" />
+        </property>
+        
+        <property name="weiboAccount" type="java.lang.String">
+            <column name="WEIBO" />
+        </property>
+        <property name="QQAccount" type="java.lang.String">
+            <column name="QQ" />
+        </property>
+        <property name="renrenAccount" type="java.lang.String">
+            <column name="RENREN" />
+        </property>
+        <property name="gplusAccount" type="java.lang.String">
+            <column name="GPLUS" />
+        </property>
+        <property name="twitterAccount" type="java.lang.String">
+            <column name="TWITTER" />
+        </property>
+        <property name="facebookAccount" type="java.lang.String">
+            <column name="FACEBOOK" />
+        </property>
+        <!-- Relationships mapping -->
+        <!-- one-to-many -->
+        <set name="visitingHistories" table="T_VISITING_HISTORIES" inverse="true" cascade="save-update" lazy="extra">
+            <key>
+                <column name="USER_ID" not-null="true"/>
+            </key>
+            <one-to-many class="com.watchshow.platform.domain.VisitingHistory"/>
+        </set>
+        
+        <!-- one-to-many -->
+        <set name="userHistories" table="T_USER_HISTORIES" inverse="true" cascade="save-update" lazy="extra">
+            <key>
+                <column name="USER_ID" not-null="true"/>
+            </key>
+            <one-to-many class="com.watchshow.platform.domain.UserHistory" />
+        </set>
+    </class>
+</hibernate-mapping>

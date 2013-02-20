@@ -1,0 +1,90 @@
+service design
+
+Now, we assume HOST stands for real hostname for app's server address.
+HOST - server host;
+PORT - Assigned port which was just used to call these service as below;
+SERVICE - Identifier for service (this could include service version perhaps);
+SERVIVENAME - Used to identify service will be called;
+1. getArticles
+	URL:
+	 - http://HOST:PORT/SERVICE/SERVIVENAME?storeId=$storeId&
+	URL parameters description:
+	
+	Response data description: (JSON+base64+sha)
+	
+	Example:
+
+2. getNews
+	URL:
+	- http://HOST:PORT/SERVICE/SERVIVENAME?storeId=$storeId&
+	URL parameters description:
+	
+	Response data description:
+	
+	Example:
+	
+3. getActivities
+	URL:
+	- http://HOST:PORT/SERVICE/SERVIVENAME?storeId=$storeId&
+	URL parameters description:
+	
+	Response data description:
+	
+	Example:
+
+4. getWatchStore
+	URL:
+	- http://HOST:PORT/SERVICE/SERVIVENAME?storeId=$storeId&
+	URL parameters description:
+	
+	Response data description:
+	
+	Example:
+
+5. checkUpdateForStore
+	URL:
+	- http://HOST:PORT/SERVICE/SERVIVENAME?storeId=$storeId&
+	URL parameters description:
+	
+	Response data description:
+	
+	Example:
+
+6. getFavorites -- GET
+	URL:
+	- http://HOST:PORT/SERVICE/SERVIVENAME?storeId=$storeId&
+	URL parameters description:
+	
+	Response data description:
+	
+	Example:
+	
+7. registerMobileUser -- POST
+	URL:
+	- http://HOST:PORT/SERVICE/SERVIVENAME
+	input parameters:
+	> method: [auto|classic|weibo|qq|]
+	> deviceSN: Device's serial number
+	> password: 
+	Response data description:
+	{
+		WSResponse:
+		{
+	
+		}
+	}
+	
+	
+	Example:
+	
+8. addComments -- POST
+	URL:
+	- http://HOST:PORT/SERVICE/SERVIVENAME?storeId=$storeId&
+	URL parameters description:
+	
+	Response data description:
+	
+	Example:
+9. getUserProfile
+
+10. updateUserProfile -- POST

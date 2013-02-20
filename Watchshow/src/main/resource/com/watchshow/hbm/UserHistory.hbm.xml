@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 4, 2012 8:32:14 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.watchshow.platform.domain.UserHistory" table="T_USER_HISTORIES" lazy="false">
+        <!-- ID and Version mappings -->
+		<id name="identifier" type="java.lang.Long" column="HISTORY_ID">
+      		<generator class="increment"/>
+    	</id>
+    	<version name="version" column="VERSION" type="java.lang.Integer"/>
+    	
+        <!-- Attributes -->
+        <property name="timestamp" type="java.sql.Timestamp">
+            <column name="TIMESTAMP" not-null="true"/>
+        </property>
+        <property name="deviceUUID" type="java.lang.String">
+            <column name="DEVICE_UUID" length="45"/>
+        </property>
+        <property name="deviceSN" type="java.lang.String">
+            <column name="DEVICE_SN" length="45"/>
+        </property>
+        <property name="deviceOS" type="java.lang.String">
+            <column name="DEVICE_OS" length="45"/>
+        </property>
+        <property name="deviceMacAddress" type="java.lang.String">
+            <column name="DEVICE_MAC_ADDR" length="45"/>
+        </property>
+        <property name="IPAddress" type="java.lang.String">
+            <column name="IP_ADDRESS" length="45"/>
+        </property>
+        <property name="action" type="java.lang.String">
+            <column name="ACTION" length="45"/>
+        </property>
+        <property name="rateIdea" type="java.lang.Integer">
+            <column name="RATE_IDEA" />
+        </property>
+        <property name="rateMovement" type="java.lang.Integer">
+            <column name="RATE_MOVEMENT" />
+        </property>
+        <property name="rateLook" type="java.lang.Integer">
+            <column name="RATE_LOOK" />
+        </property>
+        <property name="rateProspect" type="java.lang.Integer">
+            <column name="RATE_PROSPECT" />
+        </property>
+        <property name="ratePrice" type="java.lang.Integer">
+            <column name="RATE_PRICE" />
+        </property>
+        <property name="rateSum" type="java.lang.Integer">
+            <column name="RATE_SUM" />
+        </property>
+        <property name="subject" type="java.lang.String">
+            <column name="SUBJECT" length="512"/>
+        </property>
+        <property name="comment" type="java.lang.String">
+            <column name="COMMENT" length="1024"/>
+        </property>
+        <property name="commentAttachmentsPath" type="java.lang.String">
+            <column name="COMMENT_ATTACHMENTS_PATH" length="512"/>
+        </property>
+        <property name="longitude" type="java.lang.String">
+            <column name="LONGITUDE" length="128"/>
+        </property>
+        <property name="latitude" type="java.lang.String">
+            <column name="LATTITUDE" length="128"/>
+        </property>
+        <property name="location" type="java.lang.String">
+            <column name="LOCATION" length="256"/>
+        </property>
+        <!-- property name="isFavorite" type="java.lang.Boolean">
+            <column name="IS_FAVORITE"/>
+        </property-->
+        <!-- TODO: Relationships should be reset -->
+        <!-- And for this relationship, inversion relationship is not necessary to setup in watch domain object-->
+        <many-to-one name="viewedWatch" 
+        			class="com.watchshow.platform.domain.Watch" 
+        			fetch="select"
+        			cascade="none">
+            <column name="VIEWED_WATCH_ID"/>
+        </many-to-one>
+        <many-to-one name="owner" 
+        			class="com.watchshow.platform.domain.User" 
+        			fetch="select"
+        			cascade="all"> <!-- cascade this??? -->
+            <column name="USER_ID" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

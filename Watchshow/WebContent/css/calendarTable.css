@@ -1,0 +1,48 @@
+/* Calendar table
+---------------------------------------------------------------------*/
+
+.calendar {
+    height:100%;
+}
+
+.calendar th {
+    border-left:1px solid #2A7AD2;
+    border-right:1px solid #2A7AD2;
+}
+.calendar td {
+    border:1px solid #eee;
+    width: 12%;
+    padding:0 !important;
+}
+.calendar td.day:hover, .calendar td.day.hover {
+    background:#F5F5F5;
+}
+
+.calendar td.today {
+    background:#ffc;
+}
+.calendar td div.day {
+    text-align:right;
+    background: #E8EEF7
+}
+.calendar td div.day a{
+    margin:1px 6px;
+    padding:0 2px;
+}
+.events {
+    padding:2px 4px;
+    color:#fff;
+    margin:2px 0
+}
+.event1 {
+    background: #369;
+}
+.event2 {
+    background: #2a9;
+}
+.event3 {
+    background: #d66;
+}
+.event4 {
+    background: #d51;
+}

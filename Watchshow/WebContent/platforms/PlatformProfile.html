@@ -22,16 +22,11 @@ $(document).ready(function(){
                 "aTargets": [1]
             }, {
                 "mRender": function (data, type, row) {
-                    return '<a href="./WatchPreview.jsp" rel="modal">' + data + '</a>';
-                },
-                "aTargets": [3]
-            }, {
-                "mRender": function (data, type, row) {
                     return '<a href="' + row[0] + '" class="ico del">删除</a><a href="store/admin/home?ctrl=updatewatch&wid=' + row[0] + '" class="ico edit">编辑</a>';
                 },
                 "bSortable": false,
                 "bSearchable": false,
-                "aTargets": [4]
+                "aTargets": [7]
             }
                          ],
             "fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
@@ -39,7 +34,7 @@ $(document).ready(function(){
             },
     });
     $('#profile_complaints_table').dataTable({
-        "bProcessing": false,
+    	/*"bProcessing": false,
         "sAjaxSource": "platform/admin/getUserComplaints?page=false",
         "aoColumnDefs": [
             {
@@ -70,7 +65,7 @@ $(document).ready(function(){
                          ],
             "fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
                 $('a[rel*=modal]', nRow).facebox();
-            },
+            }*/
     });
 })
 </script>

@@ -26,14 +26,14 @@ $(document).ready(function(){
                     "mRender": function (data, type, row) {
                         return '<a href="./WatchPreview.jsp" rel="modal">' + data + '</a>';
                     },
-                    "aTargets": [3]
+                    "aTargets": [4]
                 }, {
                     "mRender": function (data, type, row) {
                         return '<a href="./platforms/StoreAdminInfo.jsp?founderId=' + row[5] + '" class="ico del">删除</a><a href="store/admin/home?ctrl=updatewatch&wid=' + row[0] + '" class="ico edit">编辑</a>';
                     },
                     "bSortable": false,
                     "bSearchable": false,
-                    "aTargets": [5]
+                    "aTargets": [8]
                 }
                              ],
                 "fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {

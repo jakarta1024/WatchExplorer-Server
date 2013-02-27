@@ -21,19 +21,14 @@ $(document).ready(function(){
                     "mRender": function (data, type, row) {
                         return '<a href="' + row[0] + '" rel="modal">' + data + '</a>';
                     },
-                    "aTargets": [1]
-                }, {
+                    "aTargets": [1, 2, 3]
+                },{
                     "mRender": function (data, type, row) {
-                        return '<a href="" rel="modal">' + data + '</a>';
-                    },
-                    "aTargets": [3]
-                }, {
-                    "mRender": function (data, type, row) {
-                        return '<a href="' + row[0] + '" class="ico del">删除</a><a href="store/admin/home?ctrl=updatewatch&wid=' + row[0] + '" class="ico edit">编辑</a>';
+                        return '<a href="' + row[0] + '" class="ico del">删除</a><a href="store/admin/home?ctrl=updatewatch&wid=' + row[0] + '" class="ico edit">审判</a>';
                     },
                     "bSortable": false,
                     "bSearchable": false,
-                    "aTargets": [5]
+                    "aTargets": [6]
                 }
                              ],
                 "fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {

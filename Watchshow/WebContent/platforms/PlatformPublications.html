@@ -6,10 +6,10 @@ $(document).ready(function(){
 	var state = WS.platformManager.getState();
 	$('#date-intro span').html(WS.format(new Date(), 'yyyy年MM月dd日'));
 	if (state === WS.PlatformAdmin.STATES.NOTICES) {
-		$('#annouces').hide();
+		$('#announces').hide();
 		$('#notices table').dataTable({
 	        "bProcessing": false,
-	        "sAjaxSource": "./store/admin/",
+	        //"sAjaxSource": "./store/admin/",
 	        "aoColumnDefs": [
 	            {
 	                "mRender": function (data, type, row) {
@@ -25,12 +25,7 @@ $(document).ready(function(){
 	                "aTargets": [1]
 	            }, {
 	                "mRender": function (data, type, row) {
-	                    return '<a href="./WatchPreview.jsp" rel="modal">' + data + '</a>';
-	                },
-	                "aTargets": [3]
-	            }, {
-	                "mRender": function (data, type, row) {
-	                    return '<a href="store/admin/home?ctrl=delwatch&wid=' + row[0] + '" class="ico del">删除</a><a href="store/admin/home?ctrl=updatewatch&wid=' + row[0] + '" class="ico edit">编辑</a>';
+	                    return '<a href="store/admin/home?ctrl=updatewatch&wid=' + row[0] + '" class="ico edit">编辑</a>';
 	                },
 	                "bSortable": false,
 	                "bSearchable": false,
@@ -39,13 +34,13 @@ $(document).ready(function(){
 	                         ],
 	            "fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
 	            	$('a[rel*=modal]', nRow).facebox();
-	            },
+	            }
 	    });
 	} else {
 		$('#notices').hide();
-        $('#annouces table').dataTable({
+        $('#announces table').dataTable({
             "bProcessing": false,
-            "sAjaxSource": "./store/admin/",
+            //"sAjaxSource": "./store/admin/",
             "aoColumnDefs": [
                 {
                     "mRender": function (data, type, row) {
@@ -61,12 +56,7 @@ $(document).ready(function(){
                     "aTargets": [1]
                 }, {
                     "mRender": function (data, type, row) {
-                        return '<a href="./WatchPreview.jsp" rel="modal">' + data + '</a>';
-                    },
-                    "aTargets": [3]
-                }, {
-                    "mRender": function (data, type, row) {
-                        return '<a href="store/admin/home?ctrl=delwatch&wid=' + row[0] + '" class="ico del">删除</a><a href="store/admin/home?ctrl=updatewatch&wid=' + row[0] + '" class="ico edit">编辑</a>';
+                        return '<a href="store/admin/home?ctrl=updatewatch&wid=' + row[0] + '" class="ico edit">编辑</a>';
                     },
                     "bSortable": false,
                     "bSearchable": false,
@@ -75,7 +65,7 @@ $(document).ready(function(){
                              ],
                 "fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
                 	$('a[rel*=modal]', nRow).facebox();
-                },
+                }
         });
 	}
 });
@@ -113,10 +103,8 @@ $(document).ready(function(){
 	    </table>
 	    <a href="./platforms/AddNotice.jsp" class="button" style="float: right; margin: 4px" id="add_notice" rel="modal"><img src="resources/img/add.png"
                         class="icon" alt=""/>添加</a>
-        <a href="#" class="button" style="float: right; margin: 4px"><img src="resources/img/add.png"
-                        class="icon" alt="" />删除</a>
 	</div>
-	<div id="annouces">
+	<div id="announces">
         <table cellpadding="0" cellspacing="0" border="0" class="display" id="publication_list">
             <thead>
                 <tr>
@@ -142,10 +130,8 @@ $(document).ready(function(){
                 </tr>
             </tfoot>
         </table>
-        <a href="./platforms/AddAnnounce.jsp" class="button" style="float: right; margin: 4px" id="add_annouce" rel="modal"><img src="resources/img/add.png"
+        <a href="./platforms/AddAnnounce.jsp" class="button" style="float: right; margin: 4px" id="add_announce" rel="modal"><img src="resources/img/add.png"
                         class="icon" alt=""/>添加</a>
-        <a href="#" class="button" style="float: right; margin: 4px"><img src="resources/img/add.png"
-                        class="icon" alt="" />删除</a>
     </div>
     <div class="clear">&nbsp;</div>
 </body>

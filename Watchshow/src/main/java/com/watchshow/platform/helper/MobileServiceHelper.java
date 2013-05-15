@@ -150,7 +150,7 @@ public class MobileServiceHelper {
 			List<File> files = FileManagerUtil.getAllSubFiles(folder);
 			for (File f : files) {
 				JSONObject item = new JSONObject();
-				String mimetype = ServerResourcePathHelper.getMimeType(f.getName());
+				String mimetype = ServerResourceHelper.getMimeType(f.getName());
 				try {
 					item.put("mimetype", mimetype);
 					item.put("name", f.getName());

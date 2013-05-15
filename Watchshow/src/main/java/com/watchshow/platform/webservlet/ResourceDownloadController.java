@@ -23,13 +23,13 @@ import com.watchshow.platform.domain.Publication;
 import com.watchshow.platform.domain.Watch;
 import com.watchshow.platform.domain.WatchBrand;
 import com.watchshow.platform.domain.WatchStore;
-import com.watchshow.platform.helper.ServerResourcePathHelper;
+import com.watchshow.platform.helper.ServerResourceHelper;
 
 /**
  * Servlet implementation class FileDownloadHandler
  */
 @WebServlet("/dl")
-public class FileDownloadHandler extends HttpServlet {
+public class ResourceDownloadController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	// parameters will be used to determine download contents.
 	private static final String paramClientType = "client"; // optional "mobile" | "browser"
@@ -45,7 +45,7 @@ public class FileDownloadHandler extends HttpServlet {
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public FileDownloadHandler() {
+	public ResourceDownloadController() {
 		super();
 	}
 	/**
@@ -155,7 +155,7 @@ public class FileDownloadHandler extends HttpServlet {
 			mimetype = DEFAULT_MIMETYPE;
 			if (path != null && !path.isEmpty()) {
 				String filename = path.substring(path.lastIndexOf('/'), path.length());
-				mimetype = ServerResourcePathHelper.getMimeType(filename);
+				mimetype = ServerResourceHelper.getMimeType(filename);
 			} 
 		}
 		String encoding = request.getParameter(paramEncoding);

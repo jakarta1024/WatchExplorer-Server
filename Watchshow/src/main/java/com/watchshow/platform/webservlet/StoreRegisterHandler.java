@@ -38,7 +38,7 @@ import com.watchshow.platform.domain.StoreAdminHistory;
 import com.watchshow.platform.domain.StoreAdministrator;
 import com.watchshow.platform.domain.WatchBrand;
 import com.watchshow.platform.domain.WatchStore;
-import com.watchshow.platform.helper.ServerResourcePathHelper;
+import com.watchshow.platform.helper.ServerResourceHelper;
 import com.watchshow.platform.helper.StoreServiceHelper;
 
 /**
@@ -335,7 +335,7 @@ public class StoreRegisterHandler extends HttpServlet {
 				storeDAO.saveOrUpdate(store);
 				storeId = store.getIdentifier();
 				System.out.println("storeId = "+storeId.toString());
-				String storeDescSrcPath = ServerResourcePathHelper.getServerFolderForStoreDescSource(storeId);
+				String storeDescSrcPath = ServerResourceHelper.getServerFolderForStoreDescSource(storeId);
 				System.out.println("path = "+storeDescSrcPath);
 				store.setDescResourceURL(storeDescSrcPath);
 				storeDAO.saveOrUpdate(store);
@@ -362,7 +362,7 @@ public class StoreRegisterHandler extends HttpServlet {
 					if (itemName == null || itemName =="") {
 						continue;
 					}
-					String destFilename = ServerResourcePathHelper.generateServerPathForStoringStoreFile(itemName, storeId);
+					String destFilename = ServerResourceHelper.generateServerPathForStoringStoreFile(itemName, storeId);
 					String path = fileUploadRootPath + File.separator + destFilename;
 					File file = FileManagerUtil.createFile(path, itemName);
 					item.write(file);

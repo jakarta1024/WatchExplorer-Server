@@ -50,8 +50,15 @@ public class MobileServiceContext extends AbstractServiceContext {
 	
 	public MobileServiceContext(String serviceName, String appURL, String realpath) {
 		super(serviceName, appURL, realpath);
+		try {
+			currentMethod = getClass().getDeclaredMethod(serviceName, String.class);
+		} catch (SecurityException e) {
+			e.printStackTrace();
+		} catch (NoSuchMethodException e) {
+			e.printStackTrace();
+		}
 	}
-	
+	/**
 	public static MobileServiceContext createServiceContext(String serviceName, String appURL ,String realpath) {
 		MobileServiceContext service = new MobileServiceContext(serviceName, appURL, realpath);
 		try {
@@ -73,6 +80,7 @@ public class MobileServiceContext extends AbstractServiceContext {
 		}
 		return service;
 	}
+	*/
 	/**
 	 * Execute service corresponding to your call
 	 * @param inputData - passed data which will be used by corresponding service method

@@ -12,7 +12,7 @@ import java.util.Hashtable;
  * @author Kipp Li
  *
  */
-public class ServerResourcePathHelper {
+public class ServerResourceHelper {
 	private static String resourcesRootFolder = "watchshow_resources";
 	public static final String imageRoot = "images";
 	public static final String audioRoot = "audios";
@@ -27,9 +27,9 @@ public class ServerResourcePathHelper {
 	
 	private static final Hashtable<String,String> mimetypeDict = new Hashtable<String,String>();
 	//TODO: useless
-	public static ServerResourcePathHelper sharedInstance(String hostRealRootPath) {
-		ServerResourcePathHelper helper = new ServerResourcePathHelper();
-		ServerResourcePathHelper.resourcesRootFolder = hostRealRootPath + ServerResourcePathHelper.resourcesRootFolder;
+	public static ServerResourceHelper sharedInstance(String hostRealRootPath) {
+		ServerResourceHelper helper = new ServerResourceHelper();
+		ServerResourceHelper.resourcesRootFolder = hostRealRootPath + ServerResourceHelper.resourcesRootFolder;
 		return helper;
 	}
 	static {

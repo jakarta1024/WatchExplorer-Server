@@ -54,7 +54,7 @@ public class PlatformServiceContext extends AbstractServiceContext {
 	public PlatformServiceContext(String serviceName, String appURL, String realPath) {
 		super(serviceName, appURL, realPath);
 	}
-	
+	/**
     public static PlatformServiceContext createServiceContext(PlatformAdministrator admin,String serviceName, String appURL, String realPath) {
         PlatformServiceContext service = new PlatformServiceContext(serviceName, appURL, realPath);
         try {
@@ -69,7 +69,7 @@ public class PlatformServiceContext extends AbstractServiceContext {
             e.printStackTrace();
         }
         return service;
-    }
+    }*/
     public JSONObject execute(String inputData) {
     	JSONObject responseData = null;
 		try {

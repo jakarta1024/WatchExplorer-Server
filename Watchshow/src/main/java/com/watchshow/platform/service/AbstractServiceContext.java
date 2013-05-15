@@ -11,7 +11,7 @@ public class AbstractServiceContext {
 	public static final String INTERNAL_ERROR_MESSAGE = "Failed at Requested Server"; 
 	
 	public static Float ServiceVersion = new Float(1.0);
-	public static String ServiceIdentifier = "MobileGPSService";
+	public static String ServiceIdentifier = "com.watchshow.service.identifier10";
 	protected String webappRealPath;
 	protected String appHostURL;
 	private Method currentMethod;

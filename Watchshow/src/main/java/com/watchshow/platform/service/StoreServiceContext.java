@@ -36,7 +36,7 @@ import com.watchshow.platform.domain.StoreAdministrator;
 import com.watchshow.platform.domain.Watch;
 import com.watchshow.platform.domain.WatchBrand;
 import com.watchshow.platform.domain.WatchStore;
-import com.watchshow.platform.helper.ServerResourcePathHelper;
+import com.watchshow.platform.helper.ServerResourceHelper;
 import com.watchshow.platform.helper.StoreServiceHelper;
 
 import eu.medsea.util.StringUtil;
@@ -59,7 +59,7 @@ public class StoreServiceContext extends AbstractServiceContext {
 			String realpath) {
 		super(serviceName, appURL, realpath);
 	}
-    
+    /**
 	public static StoreServiceContext getService(StoreAdministrator admin, String serviceName, String realPath, String host) {
 		StoreServiceContext service = new StoreServiceContext(serviceName, host, realPath);
         try {
@@ -73,7 +73,7 @@ public class StoreServiceContext extends AbstractServiceContext {
             e.printStackTrace();
         }
         return service;
-    }
+    }*/
     public JSONObject execute(String inputData, List<FileItem> uploadItems) {
     	JSONObject responseData = null;
 		try {
@@ -175,7 +175,7 @@ public class StoreServiceContext extends AbstractServiceContext {
         			DAO.save(store);
         			tx.commit();
         			storeId = store.getIdentifier();
-        			String storeDescSrcPath = ServerResourcePathHelper.getServerFolderForStoreDescSource(storeId);
+        			String storeDescSrcPath = ServerResourceHelper.getServerFolderForStoreDescSource(storeId);
         			System.out.println("path = "+storeDescSrcPath);
         			store.setDescResourceURL(storeDescSrcPath);
         			DAO.saveOrUpdate(store);
@@ -193,7 +193,7 @@ public class StoreServiceContext extends AbstractServiceContext {
 					if (itemName == null || itemName =="") {
 						continue;
 					}
-					String destFilename = ServerResourcePathHelper.generateServerPathForStoringStoreFile(itemName, storeId);
+					String destFilename = ServerResourceHelper.generateServerPathForStoringStoreFile(itemName, storeId);
 					String path = hostRealPath + File.separator + destFilename;
 					File file = FileManagerUtil.createFile(path, itemName);
 					item.write(file);
@@ -489,7 +489,7 @@ public class StoreServiceContext extends AbstractServiceContext {
 			try {
 				DAO.save(log); //cascade all linked pojos
 				log.setComments(StoreServiceHelper.createSimpleComment(currentAdmin, watch, StoreServiceHelper.ACTION.CREATE));
-				String srcpath = ServerResourcePathHelper.getServerFolderForWatchDescSource(curstore.getIdentifier(), watch.getIdentifier());
+				String srcpath = ServerResourceHelper.getServerFolderForWatchDescSource(curstore.getIdentifier(), watch.getIdentifier());
 				watch.setDescResourceURL(srcpath);
 				DAO.saveOrUpdate(log);
 				tx.commit();
@@ -509,7 +509,7 @@ public class StoreServiceContext extends AbstractServiceContext {
     					if (itemName == null || itemName.isEmpty()) {
     						continue;
     					}
-    					String destFilename = ServerResourcePathHelper.generateServerPathForStoringWatchFile(itemName, curstore.getIdentifier(), watch.getIdentifier());
+    					String destFilename = ServerResourceHelper.generateServerPathForStoringWatchFile(itemName, curstore.getIdentifier(), watch.getIdentifier());
     					String path = hostRealPath + File.separator + destFilename;
     					File file = FileManagerUtil.createFile(path, itemName);
     					item.write(file);
@@ -603,7 +603,7 @@ public class StoreServiceContext extends AbstractServiceContext {
     		Transaction tx = session.beginTransaction();
     		try {
     			DAO.save(log); //cascade to save all related pojos
-        		String srcPath = ServerResourcePathHelper.getServerFolderForStorePubSource(currentAdmin.getStore().getIdentifier(), publication.getIdentifier());
+        		String srcPath = ServerResourceHelper.getServerFolderForStorePubSource(currentAdmin.getStore().getIdentifier(), publication.getIdentifier());
         		publication.setResourcesURL(srcPath);
         		log.setComments(StoreServiceHelper.createSimpleComment(currentAdmin, publication, StoreServiceHelper.ACTION.CREATE));
         		DAO.saveOrUpdate(log);
@@ -624,7 +624,7 @@ public class StoreServiceContext extends AbstractServiceContext {
     					if (itemName == null || itemName.isEmpty()) {
     						continue;
     					}
-    					String destFilename = ServerResourcePathHelper.generateServerPathForStoringPubFile(itemName, currentAdmin.getStore().getIdentifier(), publication.getIdentifier());
+    					String destFilename = ServerResourceHelper.generateServerPathForStoringPubFile(itemName, currentAdmin.getStore().getIdentifier(), publication.getIdentifier());
     					String path = hostRealPath + File.separator + destFilename;
     					File file = FileManagerUtil.createFile(path, itemName);
     					item.write(file);

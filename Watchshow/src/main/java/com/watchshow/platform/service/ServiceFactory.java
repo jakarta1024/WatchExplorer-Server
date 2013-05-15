@@ -17,7 +17,7 @@ public class ServiceFactory {
 		serviceClassDictionary.put(STORE_SERVICE_CONTEXT,StoreServiceContext.class);
 	}
 
-	public static AbstractServiceContext getServiceContext(Integer contextIdentifier,
+	public static AbstractServiceContext getServiceContext(final String contextIdentifier,
 			Object... initargs) throws Exception {
 		Class<? extends AbstractServiceContext> serviceClass = serviceClassDictionary
 				.get(contextIdentifier);
@@ -40,7 +40,7 @@ public class ServiceFactory {
 		return service;
 	}
 
-	public static AbstractServiceContext getServiceContext(Integer contextIdentifier,
+	public static AbstractServiceContext getServiceContext(final String contextIdentifier,
 			String arg1, String arg2, String arg3) throws Exception {
 		Class<? extends AbstractServiceContext> serviceClass = serviceClassDictionary
 				.get(contextIdentifier);

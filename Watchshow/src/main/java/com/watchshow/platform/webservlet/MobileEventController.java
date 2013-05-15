@@ -17,12 +17,13 @@ import org.codehaus.jettison.json.JSONObject;
 
 import com.watchshow.common.util.ConstantsProvider;
 import com.watchshow.platform.service.MobileServiceContext;
+import com.watchshow.platform.service.ServiceFactory;
 
 /**
  * Servlet implementation class MobileUserRequestHandler
  */
 @WebServlet("/mobileuser/services/*")
-public class MobileUserActivitiesHandler extends HttpServlet {
+public class MobileEventController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	@SuppressWarnings("unused")
 	private static final String UTF8_STRINGTYPE = "text/html;charset=utf-8";
@@ -31,7 +32,7 @@ public class MobileUserActivitiesHandler extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MobileUserActivitiesHandler() {
+    public MobileEventController() {
         super();
     }
     
@@ -98,7 +99,12 @@ public class MobileUserActivitiesHandler extends HttpServlet {
 		}
 		String hostServer = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort();
 		String realPath = request.getServletContext().getRealPath("/");
-		JSONObject responseData = MobileServiceContext.createServiceContext(serviceName, hostServer, realPath).execute(inputData);
+		JSONObject responseData;
+		try {
+			responseData = ServiceFactory.getServiceContext(ServiceFactory.MOBILE_SERVICE_CONTEXT,serviceName, hostServer, realPath).execute(inputData);
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		}
 		//cookie things goes here
 		if (serviceName.equalsIgnoreCase("login")) {
 			try {

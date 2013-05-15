@@ -13,13 +13,13 @@ import com.watchshow.platform.dao.StoreAdministratorDao;
  * Servlet implementation class RemoteInputChecker
  */
 @WebServlet("/remotecheck")
-public class RemoteInputChecker extends HttpServlet {
+public class FieldsCheckController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RemoteInputChecker() {
+    public FieldsCheckController() {
         super();
     }
 

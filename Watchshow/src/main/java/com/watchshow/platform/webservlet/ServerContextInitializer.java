@@ -17,14 +17,14 @@ import org.apache.log4j.PropertyConfigurator;
  * Servlet implementation class Log4jInitializer
  */
 @WebServlet("/PlatformInitializer")
-public class PlatformInitializer extends HttpServlet {
+public class ServerContextInitializer extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static Logger logger = Logger.getLogger(PlatformInitializer.class);
+	private static Logger logger = Logger.getLogger(ServerContextInitializer.class);
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public PlatformInitializer() {
+	public ServerContextInitializer() {
 		super();
 	}
 

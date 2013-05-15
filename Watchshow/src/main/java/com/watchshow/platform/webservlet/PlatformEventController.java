@@ -1,14 +1,11 @@
 package com.watchshow.platform.webservlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
@@ -19,58 +16,60 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
-
+import org.codehaus.jettison.json.JSONArray;
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
-
 import com.watchshow.common.util.ConstantsProvider;
-import com.watchshow.common.util.RemoteClientInfoUtil;
-import com.watchshow.platform.dao.StoreAdministratorDao;
-import com.watchshow.platform.domain.StoreAdministrator;
-import com.watchshow.platform.helper.StoreServiceHelper;
-import com.watchshow.platform.service.StoreServiceContext;
+import com.watchshow.platform.dao.PlatformAdministratorDao;
+import com.watchshow.platform.domain.PlatformAdministrator;
+import com.watchshow.platform.helper.PlatformServiceHelper;
+import com.watchshow.platform.service.PlatformServiceContext;
 
 /**
- * Servlet implementation class StoreAdminWatchListHandler
+ * Servlet implementation class PlatformApplyRequestDataSource
  */
-@WebServlet(urlPatterns = { "/store/admin/*" },
-			initParams = { @WebInitParam(name = "uploadRootPath", value = "", description = "") })
-public class StoreAdminActivitiesHandler extends HttpServlet {
+@WebServlet("/platform/admin/*")
+public class PlatformEventController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private String hostRealPath = null;
-	private String basePath = null;
-	private static final Integer DEFAULT_COOKIE_LIFETIME = 60*60; //1 hour
-	
-	private static final String activeAdminAttrKey = "active_store_admin";
-	private static final String activeAdminCookieId = "active_store_admin_name";
-	
+    private static final Integer DEFAULT_COOKIE_LIFETIME = 60*60; //1 hour
+    
+    private static final String activeAdminAttribute = "active_platform_admin";
+    private static final String activeAdminCookieId  = "active_platform_admin_name";
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public PlatformEventController() {
+        super();
+    }
+
 	@SuppressWarnings("unchecked")
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	@Override
+	protected void service(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		response.setCharacterEncoding(ConstantsProvider.DEFAULT_ENCODING);
 		request.setCharacterEncoding(ConstantsProvider.DEFAULT_ENCODING);
-		this.basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
 		String serviceName = getRequestServiceName(request);
 		String inputData = null;
-		List<FileItem> uploadFiles = null;
 		if (ServletFileUpload.isMultipartContent(request)) {
 			ServletFileUpload uploadHandler = new ServletFileUpload(new DiskFileItemFactory());
 			List<FileItem> items;
 			try {
 				items = uploadHandler.parseRequest(request);
 				JSONObject formFields = new JSONObject();
-				List<FileItem>  uploadFileItems = new ArrayList<FileItem>();
+				JSONArray  uploadFileItems = new JSONArray();
 				for (FileItem item : items) {
 					if (item.isFormField()) {
 						String paramKey = item.getFieldName();
 						String paramValue = new String(item.getString().getBytes("ISO8859-1"), "UTF-8");
+						System.out.println(paramKey + " : " + paramValue);
 						formFields.put(paramKey, paramValue);
 					} else {
-						uploadFileItems.add(item);
+						uploadFileItems.put(item);
 					}
 				}
 				JSONObject jsonInput = new JSONObject();
 				jsonInput.put("fields", formFields);
-				uploadFiles = uploadFileItems;
+				jsonInput.put("fileitem", uploadFileItems);
 				inputData = jsonInput.toString();
 			} catch (FileUploadException e) {
 				e.printStackTrace();
@@ -98,33 +97,31 @@ public class StoreAdminActivitiesHandler extends HttpServlet {
 				response.getWriter().println("HTTP Method ["+requestMethod+"] does not be supported at this release!");
 			}
 		}
-		
-		StoreAdministrator currentAdmin = (StoreAdministrator) request.getSession().getAttribute(activeAdminAttrKey);
+		String realPath = request.getServletContext().getRealPath("/");
+		String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
+		PlatformAdministrator currentAdmin = (PlatformAdministrator) request.getSession().getAttribute(activeAdminAttribute);
 		JSONObject responseData = null;
-		String ip = RemoteClientInfoUtil.getRealRemoteIPAddress(request);
 		if (currentAdmin == null) {
 			//for register, login
-			if (serviceName.equalsIgnoreCase("login") || serviceName.equalsIgnoreCase("approve") || serviceName.equalsIgnoreCase("register")) {
-				StoreServiceContext service = StoreServiceContext.getService(currentAdmin, serviceName, hostRealPath, basePath);
-				service.setIPAddress(ip);
-				responseData = service.execute(inputData, uploadFiles);
+			if (serviceName.equalsIgnoreCase("login") || serviceName.equalsIgnoreCase("register")) {
+				responseData = PlatformServiceContext.createServiceContext(currentAdmin, serviceName, realPath, basePath).execute(inputData);
 			} 
-			//For login and logout, we need to handle extra things at this time
+			//for login and logout, we need to handle extra things at this time
 			if (serviceName.equalsIgnoreCase("login")) {
 				try {
 					Boolean successful = responseData.getJSONObject("outputData").getBoolean("successful");
 					if (successful) {
-						Long adminId = responseData.getJSONObject("outputData").getLong("adminId");
-						StoreAdministrator admin = new StoreAdministratorDao().get(adminId);
-						request.getSession().setAttribute(activeAdminAttrKey, admin);
-						request.getSession().setAttribute(activeAdminCookieId, admin.getLoginName());
-						Cookie nameCookie = new Cookie(activeAdminCookieId, admin.getLoginName());
+						String adminname = responseData.getJSONObject("outputData").getString("adminname");
+						PlatformAdministrator admin = new PlatformAdministratorDao().getAdminByName(adminname);
+						request.getSession().setAttribute(activeAdminAttribute, admin);
+						request.getSession().setAttribute(activeAdminCookieId, adminname);
+						Cookie nameCookie = new Cookie(activeAdminCookieId, adminname);
 						nameCookie.setMaxAge(DEFAULT_COOKIE_LIFETIME);
 						//sendRedirect
-						String homeURL = basePath+"/StoreAdminHome.jsp";
+						String homeURL = basePath+"/PlatformAdminHome.jsp";
 						response.sendRedirect(homeURL);
 					} else {
-						response.setHeader("refresh","0;URL="+basePath+"/StoreWelcome.jsp");
+						response.setHeader("refresh","0;URL="+basePath+"/PlatformAdminLogin.jsp");
 					}
 					
 				} catch (JSONException e) {
@@ -132,38 +129,26 @@ public class StoreAdminActivitiesHandler extends HttpServlet {
 				}
 				return;
 			} else {
-				responseData = StoreServiceHelper.sharedResponseTemplate(-1, "Required to Login", "Request from unlogined User", new JSONObject());
+				responseData = PlatformServiceHelper.sharedResponseTemplate(-1, "Required to Login", "Request from unlogined User", new JSONObject());
 			}
 		} else {
-			StoreServiceContext service = StoreServiceContext.getService(currentAdmin, serviceName, hostRealPath, basePath);
-			service.setIPAddress(ip);
-			responseData = service.execute(inputData, uploadFiles);
+			responseData = PlatformServiceContext.createServiceContext(currentAdmin, serviceName, realPath, basePath).execute(inputData);
 			if (serviceName.equalsIgnoreCase("logout")) {
 				request.getSession().invalidate();
-				response.setHeader("refresh","0;URL="+basePath+"/StoreWelcome.jsp");
+				response.setHeader("refresh","0;URL="+basePath+"/PlatformAdminLogin.jsp");
 				return;
-			} 
-			if (request.getMethod().equalsIgnoreCase("POST")) {
-				String anchor = "";
-				if (!responseData.isNull("anchorTag")) {
-					try {
-						anchor = responseData.getString("anchorTag");
-					} catch (JSONException e) {
-						e.printStackTrace();
-					}
-				}
-				response.setHeader("refresh","0;URL="+basePath+"/StoreAdminHome.jsp"+anchor);
-			} else {
-				//for now we do not do encrypt things.
-				response.setContentType("application/json");
-				response.setHeader("Cache-Control", "no-store");
-				try {
-					response.getWriter().print(responseData.toString());
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
 			}
 		}
+		//For now we do not do encrypt things.
+		try {
+			responseData = responseData.getJSONObject("outputData");
+			response.setContentType("application/json");
+			response.setHeader("Cache-Control", "no-store");
+			response.getWriter().print(responseData.toString());
+		} catch (JSONException e1) {
+			e1.printStackTrace();
+		}
+		
 	}
 	
 	private String getRequestServiceName (HttpServletRequest request) {
@@ -179,11 +164,5 @@ public class StoreAdminActivitiesHandler extends HttpServlet {
 		}
 		System.out.println("service name: " + serviceName);
 		return serviceName;
-	}
-	
-	@Override
-	public void init(ServletConfig config) throws ServletException {
-		super.init(config);
-		this.hostRealPath = config.getServletContext().getRealPath("/");
 	}
 }

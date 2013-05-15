@@ -9,7 +9,7 @@ import org.hibernate.SessionFactory;
 import com.watchshow.common.dao.BaseHibernateDao;
 import com.watchshow.common.util.FileManagerUtil;
 import com.watchshow.platform.domain.Watch;
-import com.watchshow.platform.helper.ServerResourcePathHelper;
+import com.watchshow.platform.helper.ServerResourceHelper;
 
 public class WatchDao  extends BaseHibernateDao<Watch, Long>{
 	
@@ -37,17 +37,17 @@ public class WatchDao  extends BaseHibernateDao<Watch, Long>{
 		String relativePath = watch.getDescResourceURL();
 		String srcFolder = internalPath + relativePath + File.separator;
 		if (kind == SRC_KIND.IMAGE) {
-			srcFolder += ServerResourcePathHelper.imageRoot;
+			srcFolder += ServerResourceHelper.imageRoot;
 		} else if (kind == SRC_KIND.AUDIO) {
-			srcFolder += ServerResourcePathHelper.audioRoot;
+			srcFolder += ServerResourceHelper.audioRoot;
 		} else if (kind == SRC_KIND.VIDEO) {
-			srcFolder += ServerResourcePathHelper.videoRoot;
+			srcFolder += ServerResourceHelper.videoRoot;
 		} else if (kind == SRC_KIND.PLAIN) {
-			srcFolder += ServerResourcePathHelper.plainRoot;
+			srcFolder += ServerResourceHelper.plainRoot;
 		} else if (kind == SRC_KIND.ARCHIVE) {
-			srcFolder += ServerResourcePathHelper.archiveRoot;
+			srcFolder += ServerResourceHelper.archiveRoot;
 		} else {
-			srcFolder += ServerResourcePathHelper.othersRoot;
+			srcFolder += ServerResourceHelper.othersRoot;
 		}
 		
 		System.out.println("image folder for "+watchId+" = " + srcFolder);

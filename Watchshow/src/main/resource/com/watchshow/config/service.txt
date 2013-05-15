@@ -1,4 +1,5 @@
-service design
+Service URL request spec
+version 1.0
 
 Now, we assume HOST stands for real hostname for app's server address.
 HOST - server host;

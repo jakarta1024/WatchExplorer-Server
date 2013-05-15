@@ -27,8 +27,8 @@ import com.watchshow.common.util.ConstantsProvider;
 import com.watchshow.common.util.RemoteClientInfoUtil;
 import com.watchshow.platform.dao.StoreAdministratorDao;
 import com.watchshow.platform.domain.StoreAdministrator;
-import com.watchshow.platform.service.StoreAdminActivitiesService;
-import com.watchshow.platform.service.StoreAdminHelper;
+import com.watchshow.platform.helper.StoreServiceHelper;
+import com.watchshow.platform.service.StoreServiceContext;
 
 /**
  * Servlet implementation class StoreAdminWatchListHandler
@@ -105,7 +105,7 @@ public class StoreAdminActivitiesHandler extends HttpServlet {
 		if (currentAdmin == null) {
 			//for register, login
 			if (serviceName.equalsIgnoreCase("login") || serviceName.equalsIgnoreCase("approve") || serviceName.equalsIgnoreCase("register")) {
-				StoreAdminActivitiesService service = StoreAdminActivitiesService.getService(currentAdmin, serviceName, hostRealPath, basePath);
+				StoreServiceContext service = StoreServiceContext.getService(currentAdmin, serviceName, hostRealPath, basePath);
 				service.setIPAddress(ip);
 				responseData = service.execute(inputData, uploadFiles);
 			} 
@@ -132,10 +132,10 @@ public class StoreAdminActivitiesHandler extends HttpServlet {
 				}
 				return;
 			} else {
-				responseData = StoreAdminHelper.sharedResponseTemplate(-1, "Required to Login", "Request from unlogined User", new JSONObject());
+				responseData = StoreServiceHelper.sharedResponseTemplate(-1, "Required to Login", "Request from unlogined User", new JSONObject());
 			}
 		} else {
-			StoreAdminActivitiesService service = StoreAdminActivitiesService.getService(currentAdmin, serviceName, hostRealPath, basePath);
+			StoreServiceContext service = StoreServiceContext.getService(currentAdmin, serviceName, hostRealPath, basePath);
 			service.setIPAddress(ip);
 			responseData = service.execute(inputData, uploadFiles);
 			if (serviceName.equalsIgnoreCase("logout")) {

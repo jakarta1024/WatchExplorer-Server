@@ -22,6 +22,8 @@ import com.watchshow.platform.domain.Publication;
 import com.watchshow.platform.domain.User;
 import com.watchshow.platform.domain.UserHistory;
 import com.watchshow.platform.domain.Watch;
+import com.watchshow.platform.helper.MobileServiceHelper;
+import com.watchshow.platform.helper.PlatformServiceHelper;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -33,7 +35,8 @@ import java.util.List;
  * URL Pattern: /mobileuser/services/$ServiceName
  * @author Kipp Li
  */
-public class MobileUserService {
+public class MobileServiceContext extends AbstractServiceContext {
+
 	private static final String Internal_Error_Reason = "Internal errors";
 	private static final String Internal_Error_Message = "Failed at Requested Server"; 
 	
@@ -44,8 +47,13 @@ public class MobileUserService {
 	private String appHostURL;
 	private Method currentMethod;
 	private String passedServiceName;
-	public static MobileUserService getService(String serviceName, String appURL ,String realpath) {
-		MobileUserService service = new MobileUserService();
+	
+	public MobileServiceContext(String serviceName, String appURL, String realpath) {
+		super(serviceName, appURL, realpath);
+	}
+	
+	public static MobileServiceContext createServiceContext(String serviceName, String appURL ,String realpath) {
+		MobileServiceContext service = new MobileServiceContext(serviceName, appURL, realpath);
 		try {
 			service.webappRealPath = realpath;
 			service.appHostURL = appURL;
@@ -87,7 +95,7 @@ public class MobileUserService {
 	    Integer returnCode = 0;
 	    String message = "Service["+ passedServiceName +"] is Not Found!";
     	String reason  = "Service Not Found";
-    	JSONObject response = MobileUserHelper.sharedResponseTemplate(returnCode, reason, message, new JSONObject());
+    	JSONObject response = MobileServiceHelper.sharedResponseTemplate(returnCode, reason, message, new JSONObject());
 	    return response;
 	}
 	/**
@@ -159,16 +167,16 @@ public class MobileUserService {
                 Timestamp d = new Timestamp(now.getTime());
                 User user = new User();
                 user.setUserName("auto_"+d);
-                user.setVerifyEmail(MobileUserHelper.generatePlaceholderEmailForUser(user));
-                user.setPassword(MobileUserHelper.generateAutoPassword());
+                user.setVerifyEmail(MobileServiceHelper.generatePlaceholderEmailForUser(user));
+                user.setPassword(MobileServiceHelper.generateAutoPassword());
                 UserHistory log = new UserHistory();
                 log.setDeviceOS(deviceOS);
                 log.setDeviceMacAddress(deviceMacAddr);
                 log.setIPAddress(deviceIPAddr);
                 log.setDeviceUUID(deviceUUID);
-                log.setAction(MobileUserHelper.ActionAttributesMap.get(MobileUserHelper.ACTION.REGISTER));
+                log.setAction(MobileServiceHelper.ActionAttributesMap.get(MobileServiceHelper.ACTION.REGISTER));
                 log.setDeviceSN(deviceSN);
-                log.setComment(MobileUserHelper.createSimpleComment(user, null, MobileUserHelper.ACTION.REGISTER));
+                log.setComment(MobileServiceHelper.createSimpleComment(user, null, MobileServiceHelper.ACTION.REGISTER));
                 log.setOwner(user);
                 log.setTimestamp(d);
                 Transaction tx = HibernateUtil.currentSession().beginTransaction();
@@ -222,13 +230,13 @@ public class MobileUserService {
             if (returnCode == 1) {
                 Assert.isTrue(user != null, "User can not be null!");
                 UserHistory log = new UserHistory();
-                log.setAction(MobileUserHelper.ActionAttributesMap.get(MobileUserHelper.ACTION.SIGNUP));
+                log.setAction(MobileServiceHelper.ActionAttributesMap.get(MobileServiceHelper.ACTION.SIGNUP));
                 log.setDeviceOS(deviceOS);
                 log.setDeviceMacAddress(deviceMacAddr);
                 log.setIPAddress(deviceIPAddr);
                 log.setDeviceUUID(deviceUUID);
                 log.setTimestamp(user.getRegisterTime());
-                log.setComment(MobileUserHelper.createSimpleComment(user, null, MobileUserHelper.ACTION.SIGNUP));
+                log.setComment(MobileServiceHelper.createSimpleComment(user, null, MobileServiceHelper.ACTION.SIGNUP));
                 log.setOwner(user);
                 Session s = HibernateUtil.currentSession();
                 Transaction tx = s.beginTransaction();
@@ -261,7 +269,7 @@ public class MobileUserService {
 			}
 			
 		}
-		response = MobileUserHelper.sharedResponseTemplate(returnCode, reason, message, outputData);
+		response = MobileServiceHelper.sharedResponseTemplate(returnCode, reason, message, outputData);
 		return response;
 	}
 	
@@ -276,7 +284,7 @@ public class MobileUserService {
 			String password = decInputData.getString("password");
 			String email = null;
 			if (decInputData.isNull("email")) {
-				email = MobileUserHelper.isEmailAddress(username) ? username : null;
+				email = MobileServiceHelper.isEmailAddress(username) ? username : null;
 			} else {
 				email = decInputData.getString("email");
 			}
@@ -313,7 +321,7 @@ public class MobileUserService {
 			returnCode = -1;
 		} finally {
 			HibernateUtil.currentSession().close();
-			res = MobileUserHelper.sharedResponseTemplate(returnCode, reason, message, outputData);
+			res = MobileServiceHelper.sharedResponseTemplate(returnCode, reason, message, outputData);
 		}
 		
 		return res;
@@ -332,7 +340,7 @@ public class MobileUserService {
 			message = Internal_Error_Message;
 			reason = Internal_Error_Reason;
 		} finally {
-			res = MobileUserHelper.sharedResponseTemplate(returnCode,reason, message, outputData);
+			res = MobileServiceHelper.sharedResponseTemplate(returnCode,reason, message, outputData);
 		}
 		return res;
 	}
@@ -372,7 +380,7 @@ public class MobileUserService {
 			message = Internal_Error_Message;
 		} finally {
 			HibernateUtil.currentSession().close();
-			res = MobileUserHelper.sharedResponseTemplate(returnCode, reason, message, outputData);
+			res = MobileServiceHelper.sharedResponseTemplate(returnCode, reason, message, outputData);
 		}
 		return res;
 	}
@@ -414,7 +422,7 @@ public class MobileUserService {
 			message = Internal_Error_Message;
 		} finally {
 			HibernateUtil.currentSession().close();
-			res = MobileUserHelper.sharedResponseTemplate(returnCode, reason, message, outputData);
+			res = MobileServiceHelper.sharedResponseTemplate(returnCode, reason, message, outputData);
 		}
 		return res;
 	}
@@ -499,7 +507,7 @@ public class MobileUserService {
 	    } finally {
 	    	HibernateUtil.currentSession().close();
 	    }
-	    res = MobileUserHelper.sharedResponseTemplate(returnCode, reason, message, outputData);
+	    res = MobileServiceHelper.sharedResponseTemplate(returnCode, reason, message, outputData);
 	    return res;
 	}
 	protected JSONObject getWatch(String queryData) {
@@ -540,10 +548,10 @@ public class MobileUserService {
 					outputData.put("rates", rates);
 				}
 				JSONObject attach = new JSONObject();
-				attach.put("imageURLs", new JSONArray(MobileUserHelper.composeDownloadableURLs(wDAO.getResourcePathWithKind(id, WatchDao.SRC_KIND.IMAGE, webappRealPath))));
-				attach.put("videoURLs", new JSONArray(MobileUserHelper.composeDownloadableURLs(wDAO.getResourcePathWithKind(id, WatchDao.SRC_KIND.VIDEO, webappRealPath))));
-				attach.put("audioURLs", new JSONArray(MobileUserHelper.composeDownloadableURLs(wDAO.getResourcePathWithKind(id, WatchDao.SRC_KIND.AUDIO, webappRealPath))));
-				attach.put("plainURLs", new JSONArray(MobileUserHelper.composeDownloadableURLs(wDAO.getResourcePathWithKind(id, WatchDao.SRC_KIND.PLAIN, webappRealPath))));
+				attach.put("imageURLs", new JSONArray(MobileServiceHelper.composeDownloadableURLs(wDAO.getResourcePathWithKind(id, WatchDao.SRC_KIND.IMAGE, webappRealPath))));
+				attach.put("videoURLs", new JSONArray(MobileServiceHelper.composeDownloadableURLs(wDAO.getResourcePathWithKind(id, WatchDao.SRC_KIND.VIDEO, webappRealPath))));
+				attach.put("audioURLs", new JSONArray(MobileServiceHelper.composeDownloadableURLs(wDAO.getResourcePathWithKind(id, WatchDao.SRC_KIND.AUDIO, webappRealPath))));
+				attach.put("plainURLs", new JSONArray(MobileServiceHelper.composeDownloadableURLs(wDAO.getResourcePathWithKind(id, WatchDao.SRC_KIND.PLAIN, webappRealPath))));
 				outputData.put("attachments", attach);
 				
 				returnCode = 1;
@@ -557,7 +565,7 @@ public class MobileUserService {
 			reason = Internal_Error_Reason;
 		} finally {
 			HibernateUtil.currentSession().close();
-			res = MobileUserHelper.sharedResponseTemplate(returnCode, reason, message, outputData);
+			res = MobileServiceHelper.sharedResponseTemplate(returnCode, reason, message, outputData);
 		}
 		return res;
 	}
@@ -586,7 +594,7 @@ public class MobileUserService {
 				}
 				Criteria criteria = HDAO.currentSession().createCriteria(UserHistory.class);
 				criteria.createCriteria("viewedWatch").add(Restrictions.eq("identifier", watchId));
-				criteria.add(Restrictions.like("action", MobileUserHelper.ActionAttributesMap.get(MobileUserHelper.ACTION.COMMENT)));
+				criteria.add(Restrictions.like("action", MobileServiceHelper.ActionAttributesMap.get(MobileServiceHelper.ACTION.COMMENT)));
 				criteria.addOrder(asc ? Order.asc(orderBy) : Order.desc(orderBy));
 				if (!mode.equalsIgnoreCase("all")) { //"search"
 					String term = "author";
@@ -630,7 +638,7 @@ public class MobileUserService {
 			message = Internal_Error_Message;
 		} finally {
 			HibernateUtil.currentSession().close();
-			response = MobileUserHelper.sharedResponseTemplate(returnCode, reason, message, outputData);
+			response = MobileServiceHelper.sharedResponseTemplate(returnCode, reason, message, outputData);
 		}
 		return response;
 	}
@@ -660,7 +668,7 @@ public class MobileUserService {
 		Watch watch = new WatchDao().get(watchId);
 		if (user != null && watch!=null) {
 			UserHistory userComment = new UserHistory();
-			userComment.setAction(MobileUserHelper.ActionAttributesMap.get(MobileUserHelper.ACTION.COMMENT));
+			userComment.setAction(MobileServiceHelper.ActionAttributesMap.get(MobileServiceHelper.ACTION.COMMENT));
 			try {
 				JSONObject commentOb = decQuery.getJSONObject("comment");
 				JSONObject ratesOb = commentOb.getJSONObject("rates");
@@ -734,7 +742,7 @@ public class MobileUserService {
 			}
 			
 		}
-		response = MobileUserHelper.sharedResponseTemplate(returnCode, reason, message, outputData);
+		response = MobileServiceHelper.sharedResponseTemplate(returnCode, reason, message, outputData);
 		return response;
 	}
 	
@@ -781,7 +789,7 @@ public class MobileUserService {
 			message = Internal_Error_Message;
 		} finally {
 			HibernateUtil.currentSession().close();
-			response = PlatformAdminHelper.sharedResponseTemplate(returnCode, reason, message, outputData);
+			response = PlatformServiceHelper.sharedResponseTemplate(returnCode, reason, message, outputData);
 		}
 		
 		return response;

@@ -22,8 +22,8 @@ import org.codehaus.jettison.json.JSONObject;
 import com.watchshow.common.util.ConstantsProvider;
 import com.watchshow.platform.dao.PlatformAdministratorDao;
 import com.watchshow.platform.domain.PlatformAdministrator;
-import com.watchshow.platform.service.PlatformAdminActivitiesService;
-import com.watchshow.platform.service.PlatformAdminHelper;
+import com.watchshow.platform.helper.PlatformServiceHelper;
+import com.watchshow.platform.service.PlatformServiceContext;
 
 /**
  * Servlet implementation class PlatformApplyRequestDataSource
@@ -104,7 +104,7 @@ public class PlatformAdminActivitiesHandler extends HttpServlet {
 		if (currentAdmin == null) {
 			//for register, login
 			if (serviceName.equalsIgnoreCase("login") || serviceName.equalsIgnoreCase("register")) {
-				responseData = PlatformAdminActivitiesService.getService(currentAdmin, serviceName, realPath, basePath).execute(inputData);
+				responseData = PlatformServiceContext.createServiceContext(currentAdmin, serviceName, realPath, basePath).execute(inputData);
 			} 
 			//for login and logout, we need to handle extra things at this time
 			if (serviceName.equalsIgnoreCase("login")) {
@@ -129,10 +129,10 @@ public class PlatformAdminActivitiesHandler extends HttpServlet {
 				}
 				return;
 			} else {
-				responseData = PlatformAdminHelper.sharedResponseTemplate(-1, "Required to Login", "Request from unlogined User", new JSONObject());
+				responseData = PlatformServiceHelper.sharedResponseTemplate(-1, "Required to Login", "Request from unlogined User", new JSONObject());
 			}
 		} else {
-			responseData = PlatformAdminActivitiesService.getService(currentAdmin, serviceName, realPath, basePath).execute(inputData);
+			responseData = PlatformServiceContext.createServiceContext(currentAdmin, serviceName, realPath, basePath).execute(inputData);
 			if (serviceName.equalsIgnoreCase("logout")) {
 				request.getSession().invalidate();
 				response.setHeader("refresh","0;URL="+basePath+"/PlatformAdminLogin.jsp");

@@ -16,7 +16,7 @@ import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
 
 import com.watchshow.common.util.ConstantsProvider;
-import com.watchshow.platform.service.MobileUserService;
+import com.watchshow.platform.service.MobileServiceContext;
 
 /**
  * Servlet implementation class MobileUserRequestHandler
@@ -98,7 +98,7 @@ public class MobileUserActivitiesHandler extends HttpServlet {
 		}
 		String hostServer = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort();
 		String realPath = request.getServletContext().getRealPath("/");
-		JSONObject responseData = MobileUserService.getService(serviceName, hostServer, realPath).execute(inputData);
+		JSONObject responseData = MobileServiceContext.createServiceContext(serviceName, hostServer, realPath).execute(inputData);
 		//cookie things goes here
 		if (serviceName.equalsIgnoreCase("login")) {
 			try {

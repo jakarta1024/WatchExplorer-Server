@@ -32,9 +32,12 @@ import com.watchshow.platform.domain.UserHistory;
 import com.watchshow.platform.domain.Watch;
 import com.watchshow.platform.domain.WatchBrand;
 import com.watchshow.platform.domain.WatchStore;
+import com.watchshow.platform.helper.PlatformServiceHelper;
 
-public class PlatformAdminActivitiesService extends Object {
+public class PlatformServiceContext extends AbstractServiceContext {
 	
+
+
 	private static final String Internal_Error_Reason = "Internal errors";
 	private static final String Internal_Error_Message = "Failed at Requested Server"; 
 	public static Float ServiceVersion = new Float(1.0);
@@ -47,15 +50,16 @@ public class PlatformAdminActivitiesService extends Object {
 	private String hostRealPath = null;
     private static final String COMPLAINT = "COMPLAIN";
     
-	public PlatformAdminActivitiesService() {
-		super();
+		
+	public PlatformServiceContext(String serviceName, String appURL, String realPath) {
+		super(serviceName, appURL, realPath);
 	}
 	
-    public static PlatformAdminActivitiesService getService(PlatformAdministrator admin, String serviceName, String realPath, String hostURL) {
-        PlatformAdminActivitiesService service = new PlatformAdminActivitiesService();
+    public static PlatformServiceContext createServiceContext(PlatformAdministrator admin,String serviceName, String appURL, String realPath) {
+        PlatformServiceContext service = new PlatformServiceContext(serviceName, appURL, realPath);
         try {
         	service.currentAdmin = admin;
-        	service.hostURL = hostURL;
+        	service.hostURL = appURL;
         	service.hostRealPath = realPath;
             service.currentMethod = service.getClass().getDeclaredMethod(serviceName, JSONObject.class);
         } catch (SecurityException e) {
@@ -109,7 +113,7 @@ public class PlatformAdminActivitiesService extends Object {
 			reason = Internal_Error_Reason;
 			message = Internal_Error_Message;
 		} finally {
-			response = PlatformAdminHelper.sharedResponseTemplate(returnCode, reason, message, outputData);
+			response = PlatformServiceHelper.sharedResponseTemplate(returnCode, reason, message, outputData);
 		}
     	return response;
     }
@@ -148,7 +152,7 @@ public class PlatformAdminActivitiesService extends Object {
 			reason = Internal_Error_Reason;
 			message = Internal_Error_Message;
 		} finally {
-			response = PlatformAdminHelper.sharedResponseTemplate(returnCode, reason, message, outputData);
+			response = PlatformServiceHelper.sharedResponseTemplate(returnCode, reason, message, outputData);
 		}
 		return response;
 	}
@@ -233,7 +237,7 @@ public class PlatformAdminActivitiesService extends Object {
 			reason = Internal_Error_Reason;
 			message = Internal_Error_Message;
 		} finally {
-			response = PlatformAdminHelper.sharedResponseTemplate(returnCode, reason, message, out);
+			response = PlatformServiceHelper.sharedResponseTemplate(returnCode, reason, message, out);
 		}
 		return response;
 	}
@@ -276,7 +280,7 @@ public class PlatformAdminActivitiesService extends Object {
 			reason = Internal_Error_Reason;
 			message = Internal_Error_Message;
 		} finally {
-			response = PlatformAdminHelper.sharedResponseTemplate(returnCode, reason, message, out);
+			response = PlatformServiceHelper.sharedResponseTemplate(returnCode, reason, message, out);
 		}
 		return response;
 	}
@@ -337,16 +341,16 @@ public class PlatformAdminActivitiesService extends Object {
 			bulletin.setPublisher(currentAdmin);
 			
 			PlatformAdminLog log = new PlatformAdminLog();
-			PlatformAdminHelper.ACTION actionKey;
+			PlatformServiceHelper.ACTION actionKey;
 			if (kind.equalsIgnoreCase("notice")) {
-				actionKey = PlatformAdminHelper.ACTION.ADD_NOTICE;
+				actionKey = PlatformServiceHelper.ACTION.ADD_NOTICE;
 			} else if (kind.equalsIgnoreCase("announce")) {
-				actionKey = PlatformAdminHelper.ACTION.ADD_ANNOUNCE;
+				actionKey = PlatformServiceHelper.ACTION.ADD_ANNOUNCE;
 			} else {
-				actionKey = PlatformAdminHelper.ACTION.UNKNOWN;
+				actionKey = PlatformServiceHelper.ACTION.UNKNOWN;
 			}
-			log.setAction(PlatformAdminHelper.ActionAttributesMap.get(actionKey));
-			log.setComments(PlatformAdminHelper.createSimpleComment(currentAdmin, bulletin, actionKey));
+			log.setAction(PlatformServiceHelper.ActionAttributesMap.get(actionKey));
+			log.setComments(PlatformServiceHelper.createSimpleComment(currentAdmin, bulletin, actionKey));
 			log.setAdmin(currentAdmin);
 			log.setPublishedBulletin(bulletin);
 			log.setTimestamp(new Timestamp(System.currentTimeMillis()));
@@ -371,7 +375,7 @@ public class PlatformAdminActivitiesService extends Object {
 			reason = Internal_Error_Reason;
 			message = Internal_Error_Message; 
 		}
-		response = PlatformAdminHelper.sharedResponseTemplate(returnCode, reason, message, data);
+		response = PlatformServiceHelper.sharedResponseTemplate(returnCode, reason, message, data);
 		return response;
 	}
 	
@@ -404,7 +408,7 @@ public class PlatformAdminActivitiesService extends Object {
 			reason = Internal_Error_Reason;
 			message = Internal_Error_Message; 
 		} finally {
-			response = PlatformAdminHelper.sharedResponseTemplate(returnCode, reason, message, outputData);
+			response = PlatformServiceHelper.sharedResponseTemplate(returnCode, reason, message, outputData);
 		}
 		return response;
 	}

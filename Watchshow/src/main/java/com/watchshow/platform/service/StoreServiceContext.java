@@ -36,10 +36,13 @@ import com.watchshow.platform.domain.StoreAdministrator;
 import com.watchshow.platform.domain.Watch;
 import com.watchshow.platform.domain.WatchBrand;
 import com.watchshow.platform.domain.WatchStore;
+import com.watchshow.platform.helper.ServerResourcePathHelper;
+import com.watchshow.platform.helper.StoreServiceHelper;
 
 import eu.medsea.util.StringUtil;
 
-public class StoreAdminActivitiesService extends Object {
+public class StoreServiceContext extends AbstractServiceContext {
+
 	private static final String Internal_Error_Reason = "Internal errors";
 	private static final String Internal_Error_Message = "Failed at Requested Server"; 
 	public static Float ServiceVersion = new Float(1.0);
@@ -52,8 +55,13 @@ public class StoreAdminActivitiesService extends Object {
     	this.IPAddress = IPAddress;
     }
     
-	public static StoreAdminActivitiesService getService(StoreAdministrator admin, String serviceName, String realPath, String host) {
-		StoreAdminActivitiesService service = new StoreAdminActivitiesService();
+	public StoreServiceContext(String serviceName, String appURL,
+			String realpath) {
+		super(serviceName, appURL, realpath);
+	}
+    
+	public static StoreServiceContext getService(StoreAdministrator admin, String serviceName, String realPath, String host) {
+		StoreServiceContext service = new StoreServiceContext(serviceName, host, realPath);
         try {
         	service.hostRealPath = realPath;
         	service.currentAdmin = admin;
@@ -150,7 +158,7 @@ public class StoreAdminActivitiesService extends Object {
         		store.setBrand(brand);
         		founder.setStore(store);
         		
-        		founder.setRole(StoreAdminHelper.RoleAttributeMap.get(StoreAdminHelper.ROLE.FOUNDER));
+        		founder.setRole(StoreServiceHelper.RoleAttributeMap.get(StoreServiceHelper.ROLE.FOUNDER));
 
     			StoreAdminHistory log = new StoreAdminHistory();
     			Timestamp now = new Timestamp(System.currentTimeMillis());
@@ -167,7 +175,7 @@ public class StoreAdminActivitiesService extends Object {
         			DAO.save(store);
         			tx.commit();
         			storeId = store.getIdentifier();
-        			String storeDescSrcPath = ResourcePathHelper.getServerFolderForStoreDescSource(storeId);
+        			String storeDescSrcPath = ServerResourcePathHelper.getServerFolderForStoreDescSource(storeId);
         			System.out.println("path = "+storeDescSrcPath);
         			store.setDescResourceURL(storeDescSrcPath);
         			DAO.saveOrUpdate(store);
@@ -185,7 +193,7 @@ public class StoreAdminActivitiesService extends Object {
 					if (itemName == null || itemName =="") {
 						continue;
 					}
-					String destFilename = ResourcePathHelper.generateServerPathForStoringStoreFile(itemName, storeId);
+					String destFilename = ServerResourcePathHelper.generateServerPathForStoringStoreFile(itemName, storeId);
 					String path = hostRealPath + File.separator + destFilename;
 					File file = FileManagerUtil.createFile(path, itemName);
 					item.write(file);
@@ -196,7 +204,7 @@ public class StoreAdminActivitiesService extends Object {
     		reason = Internal_Error_Reason;
     		message = Internal_Error_Message;
     	} finally {
-    		response = StoreAdminHelper.sharedResponseTemplate(returnCode, reason, message, outputData);
+    		response = StoreServiceHelper.sharedResponseTemplate(returnCode, reason, message, outputData);
     	}
     	return response;
     }
@@ -238,7 +246,7 @@ public class StoreAdminActivitiesService extends Object {
     		reason = Internal_Error_Reason;
     	} finally {
     		HibernateUtil.currentSession().close();
-    		response = StoreAdminHelper.sharedResponseTemplate(returnCode, reason, message, outputData);
+    		response = StoreServiceHelper.sharedResponseTemplate(returnCode, reason, message, outputData);
     	}
     	return response;
     }
@@ -468,7 +476,7 @@ public class StoreAdminActivitiesService extends Object {
 			watch.setStore(curstore);
 
 			StoreAdminHistory log = new StoreAdminHistory();
-			log.setAction(StoreAdminHelper.ActionAttributeMap.get(StoreAdminHelper.ACTION.CREATE));
+			log.setAction(StoreServiceHelper.ActionAttributeMap.get(StoreServiceHelper.ACTION.CREATE));
 			log.setTimestamp(new Timestamp(System.currentTimeMillis()));
 			log.setOperatedWatch(watch);
 			log.setIPAddress(IPAddress);
@@ -480,8 +488,8 @@ public class StoreAdminActivitiesService extends Object {
 			Transaction tx = session.beginTransaction();
 			try {
 				DAO.save(log); //cascade all linked pojos
-				log.setComments(StoreAdminHelper.createSimpleComment(currentAdmin, watch, StoreAdminHelper.ACTION.CREATE));
-				String srcpath = ResourcePathHelper.getServerFolderForWatchDescSource(curstore.getIdentifier(), watch.getIdentifier());
+				log.setComments(StoreServiceHelper.createSimpleComment(currentAdmin, watch, StoreServiceHelper.ACTION.CREATE));
+				String srcpath = ServerResourcePathHelper.getServerFolderForWatchDescSource(curstore.getIdentifier(), watch.getIdentifier());
 				watch.setDescResourceURL(srcpath);
 				DAO.saveOrUpdate(log);
 				tx.commit();
@@ -501,7 +509,7 @@ public class StoreAdminActivitiesService extends Object {
     					if (itemName == null || itemName.isEmpty()) {
     						continue;
     					}
-    					String destFilename = ResourcePathHelper.generateServerPathForStoringWatchFile(itemName, curstore.getIdentifier(), watch.getIdentifier());
+    					String destFilename = ServerResourcePathHelper.generateServerPathForStoringWatchFile(itemName, curstore.getIdentifier(), watch.getIdentifier());
     					String path = hostRealPath + File.separator + destFilename;
     					File file = FileManagerUtil.createFile(path, itemName);
     					item.write(file);
@@ -582,7 +590,7 @@ public class StoreAdminActivitiesService extends Object {
     		publication.setPublisher(currentAdmin);
     		//news.setReferredWatches(); //FIXME: ????
     		StoreAdminHistory log = new StoreAdminHistory();
-			log.setAction(StoreAdminHelper.ActionAttributeMap.get(StoreAdminHelper.ACTION.CREATE));
+			log.setAction(StoreServiceHelper.ActionAttributeMap.get(StoreServiceHelper.ACTION.CREATE));
 			log.setTimestamp(new Timestamp(System.currentTimeMillis()));
 			log.setPublication(publication);
 			log.setIPAddress(IPAddress);
@@ -595,9 +603,9 @@ public class StoreAdminActivitiesService extends Object {
     		Transaction tx = session.beginTransaction();
     		try {
     			DAO.save(log); //cascade to save all related pojos
-        		String srcPath = ResourcePathHelper.getServerFolderForStorePubSource(currentAdmin.getStore().getIdentifier(), publication.getIdentifier());
+        		String srcPath = ServerResourcePathHelper.getServerFolderForStorePubSource(currentAdmin.getStore().getIdentifier(), publication.getIdentifier());
         		publication.setResourcesURL(srcPath);
-        		log.setComments(StoreAdminHelper.createSimpleComment(currentAdmin, publication, StoreAdminHelper.ACTION.CREATE));
+        		log.setComments(StoreServiceHelper.createSimpleComment(currentAdmin, publication, StoreServiceHelper.ACTION.CREATE));
         		DAO.saveOrUpdate(log);
     			tx.commit();
     			returnCode = 1;
@@ -616,7 +624,7 @@ public class StoreAdminActivitiesService extends Object {
     					if (itemName == null || itemName.isEmpty()) {
     						continue;
     					}
-    					String destFilename = ResourcePathHelper.generateServerPathForStoringPubFile(itemName, currentAdmin.getStore().getIdentifier(), publication.getIdentifier());
+    					String destFilename = ServerResourcePathHelper.generateServerPathForStoringPubFile(itemName, currentAdmin.getStore().getIdentifier(), publication.getIdentifier());
     					String path = hostRealPath + File.separator + destFilename;
     					File file = FileManagerUtil.createFile(path, itemName);
     					item.write(file);

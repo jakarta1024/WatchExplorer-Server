@@ -1,4 +1,4 @@
-package com.watchshow.platform.service;
+package com.watchshow.platform.helper;
 
 import java.io.File;
 import java.sql.Timestamp;
@@ -21,9 +21,10 @@ import com.watchshow.platform.domain.User;
 import com.watchshow.platform.domain.UserHistory;
 import com.watchshow.platform.domain.Watch;
 import com.watchshow.platform.domain.WatchStore;
+import com.watchshow.platform.service.MobileServiceContext;
 
 
-public class MobileUserHelper {
+public class MobileServiceHelper {
 	
     public enum ACTION {
         REGISTER,
@@ -95,7 +96,7 @@ public class MobileUserHelper {
 		JSONObject template = null;
 		try {
 			JSONObject context = new JSONObject();
-			context.put("version", MobileUserService.ServiceVersion.toString());
+			context.put("version", MobileServiceContext.ServiceVersion.toString());
 			context.put("returnCode", new Integer(returnCode).toString());
 			if (reason != null && !reason.isEmpty()) {
 				context.put("reason", reason);
@@ -149,7 +150,7 @@ public class MobileUserHelper {
 			List<File> files = FileManagerUtil.getAllSubFiles(folder);
 			for (File f : files) {
 				JSONObject item = new JSONObject();
-				String mimetype = ResourcePathHelper.getMimeType(f.getName());
+				String mimetype = ServerResourcePathHelper.getMimeType(f.getName());
 				try {
 					item.put("mimetype", mimetype);
 					item.put("name", f.getName());

@@ -1,4 +1,4 @@
-package com.watchshow.platform.service;
+package com.watchshow.platform.helper;
 
 import java.sql.Timestamp;
 import java.util.HashMap;
@@ -10,8 +10,9 @@ import org.codehaus.jettison.json.JSONObject;
 import com.watchshow.platform.domain.BaseDomainObject;
 import com.watchshow.platform.domain.PlatformAdministrator;
 import com.watchshow.platform.domain.PlatformBulletin;
+import com.watchshow.platform.service.PlatformServiceContext;
 
-public class PlatformAdminHelper {
+public class PlatformServiceHelper {
 	public enum ACTION {
         //For 
 		ADD_ANNOUNCE,
@@ -42,7 +43,7 @@ public class PlatformAdminHelper {
         ActionDetailDescMap.put(ACTION.UNKNOWN, "UNKNOWN");
         ActionDetailDescMap.put(ACTION.NO_ACTION, "N/A");
     }
-	public PlatformAdminHelper() {
+	public PlatformServiceHelper() {
 		super();
 	}
 	
@@ -63,7 +64,7 @@ public class PlatformAdminHelper {
 		JSONObject template = null;
 		try {
 			JSONObject context = new JSONObject();
-			context.put("version", PlatformAdminActivitiesService.ServiceVersion.toString());
+			context.put("version", PlatformServiceContext.ServiceVersion.toString());
 			context.put("returnCode", new Integer(returnCode).toString());
 			if (reason != null && !reason.isEmpty()) {
 				context.put("reason", reason);

@@ -1,4 +1,4 @@
-package com.watchshow.platform.service;
+package com.watchshow.platform.helper;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
@@ -15,9 +15,10 @@ import com.watchshow.platform.domain.BaseDomainObject;
 import com.watchshow.platform.domain.Publication;
 import com.watchshow.platform.domain.StoreAdministrator;
 import com.watchshow.platform.domain.Watch;
+import com.watchshow.platform.service.PlatformServiceContext;
 
 
-public class StoreAdminHelper {
+public class StoreServiceHelper {
 	public enum ROLE {
 		FOUNDER, //Indicates Store Creator aka the boss.
 		ADMIN, //do anything
@@ -96,7 +97,7 @@ public class StoreAdminHelper {
 		JSONObject template = null;
 		try {
 			JSONObject context = new JSONObject();
-			context.put("version", PlatformAdminActivitiesService.ServiceVersion.toString());
+			context.put("version", PlatformServiceContext.ServiceVersion.toString());
 			context.put("returnCode", new Integer(returnCode).toString());
 			if (reason != null && !reason.isEmpty()) {
 				context.put("reason", reason);

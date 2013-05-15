@@ -1,4 +1,4 @@
-package com.watchshow.platform.service;
+package com.watchshow.platform.helper;
 
 import java.io.File;
 import java.util.Hashtable;
@@ -12,7 +12,7 @@ import java.util.Hashtable;
  * @author Kipp Li
  *
  */
-public class ResourcePathHelper {
+public class ServerResourcePathHelper {
 	private static String resourcesRootFolder = "watchshow_resources";
 	public static final String imageRoot = "images";
 	public static final String audioRoot = "audios";
@@ -27,9 +27,9 @@ public class ResourcePathHelper {
 	
 	private static final Hashtable<String,String> mimetypeDict = new Hashtable<String,String>();
 	//TODO: useless
-	public static ResourcePathHelper sharedInstance(String hostRealRootPath) {
-		ResourcePathHelper helper = new ResourcePathHelper();
-		ResourcePathHelper.resourcesRootFolder = hostRealRootPath + ResourcePathHelper.resourcesRootFolder;
+	public static ServerResourcePathHelper sharedInstance(String hostRealRootPath) {
+		ServerResourcePathHelper helper = new ServerResourcePathHelper();
+		ServerResourcePathHelper.resourcesRootFolder = hostRealRootPath + ServerResourcePathHelper.resourcesRootFolder;
 		return helper;
 	}
 	static {

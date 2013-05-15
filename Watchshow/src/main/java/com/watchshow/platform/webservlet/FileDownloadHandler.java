@@ -23,7 +23,7 @@ import com.watchshow.platform.domain.Publication;
 import com.watchshow.platform.domain.Watch;
 import com.watchshow.platform.domain.WatchBrand;
 import com.watchshow.platform.domain.WatchStore;
-import com.watchshow.platform.service.ResourcePathHelper;
+import com.watchshow.platform.helper.ServerResourcePathHelper;
 
 /**
  * Servlet implementation class FileDownloadHandler
@@ -155,7 +155,7 @@ public class FileDownloadHandler extends HttpServlet {
 			mimetype = DEFAULT_MIMETYPE;
 			if (path != null && !path.isEmpty()) {
 				String filename = path.substring(path.lastIndexOf('/'), path.length());
-				mimetype = ResourcePathHelper.getMimeType(filename);
+				mimetype = ServerResourcePathHelper.getMimeType(filename);
 			} 
 		}
 		String encoding = request.getParameter(paramEncoding);

@@ -38,8 +38,8 @@ import com.watchshow.platform.domain.StoreAdminHistory;
 import com.watchshow.platform.domain.StoreAdministrator;
 import com.watchshow.platform.domain.WatchBrand;
 import com.watchshow.platform.domain.WatchStore;
-import com.watchshow.platform.service.ResourcePathHelper;
-import com.watchshow.platform.service.StoreAdminHelper;
+import com.watchshow.platform.helper.ServerResourcePathHelper;
+import com.watchshow.platform.helper.StoreServiceHelper;
 
 /**
  * Servlet implementation class FileUploadServlet
@@ -304,7 +304,7 @@ public class StoreRegisterHandler extends HttpServlet {
 			storeAdmin.setAuthorised(false);
 			storeAdmin.setLoginName(founderName);
 			storeAdmin.setPassword(founderPasswd);
-			storeAdmin.setRole(StoreAdminHelper.RoleAttributeMap.get(StoreAdminHelper.ROLE.FOUNDER));
+			storeAdmin.setRole(StoreServiceHelper.RoleAttributeMap.get(StoreServiceHelper.ROLE.FOUNDER));
 
 			StoreAdminHistory log = new StoreAdminHistory();
 			Timestamp now = new Timestamp(System.currentTimeMillis());
@@ -335,7 +335,7 @@ public class StoreRegisterHandler extends HttpServlet {
 				storeDAO.saveOrUpdate(store);
 				storeId = store.getIdentifier();
 				System.out.println("storeId = "+storeId.toString());
-				String storeDescSrcPath = ResourcePathHelper.getServerFolderForStoreDescSource(storeId);
+				String storeDescSrcPath = ServerResourcePathHelper.getServerFolderForStoreDescSource(storeId);
 				System.out.println("path = "+storeDescSrcPath);
 				store.setDescResourceURL(storeDescSrcPath);
 				storeDAO.saveOrUpdate(store);
@@ -362,7 +362,7 @@ public class StoreRegisterHandler extends HttpServlet {
 					if (itemName == null || itemName =="") {
 						continue;
 					}
-					String destFilename = ResourcePathHelper.generateServerPathForStoringStoreFile(itemName, storeId);
+					String destFilename = ServerResourcePathHelper.generateServerPathForStoringStoreFile(itemName, storeId);
 					String path = fileUploadRootPath + File.separator + destFilename;
 					File file = FileManagerUtil.createFile(path, itemName);
 					item.write(file);

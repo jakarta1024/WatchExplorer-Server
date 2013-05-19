@@ -24,6 +24,7 @@ import com.watchshow.platform.dao.PlatformBulletinDao;
 import com.watchshow.platform.dao.StoreAdministratorDao;
 import com.watchshow.platform.dao.UserHistoryDao;
 import com.watchshow.platform.dao.WatchStoreDao;
+import com.watchshow.platform.domain.BaseDomainObject;
 import com.watchshow.platform.domain.PlatformAdminLog;
 import com.watchshow.platform.domain.PlatformAdministrator;
 import com.watchshow.platform.domain.PlatformBulletin;
@@ -51,25 +52,10 @@ public class PlatformServiceContext extends AbstractServiceContext {
     private static final String COMPLAINT = "COMPLAIN";
     
 		
-	public PlatformServiceContext(String serviceName, String appURL, String realPath) {
-		super(serviceName, appURL, realPath);
+	public PlatformServiceContext(BaseDomainObject user, String serviceName, String appURL, String realPath) {
+		super(user, serviceName, appURL, realPath);
 	}
-	/**
-    public static PlatformServiceContext createServiceContext(PlatformAdministrator admin,String serviceName, String appURL, String realPath) {
-        PlatformServiceContext service = new PlatformServiceContext(serviceName, appURL, realPath);
-        try {
-        	service.currentAdmin = admin;
-        	service.hostURL = appURL;
-        	service.hostRealPath = realPath;
-            service.currentMethod = service.getClass().getDeclaredMethod(serviceName, JSONObject.class);
-        } catch (SecurityException e) {
-            e.printStackTrace();
-        } catch (NoSuchMethodException e) {
-            System.out.println("No such service implemented for " + serviceName);
-            e.printStackTrace();
-        }
-        return service;
-    }*/
+
     public JSONObject execute(String inputData) {
     	JSONObject responseData = null;
 		try {

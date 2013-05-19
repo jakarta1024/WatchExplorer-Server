@@ -18,6 +18,7 @@ import com.watchshow.platform.dao.PublicationDao;
 import com.watchshow.platform.dao.UserDao;
 import com.watchshow.platform.dao.UserHistoryDao;
 import com.watchshow.platform.dao.WatchDao;
+import com.watchshow.platform.domain.BaseDomainObject;
 import com.watchshow.platform.domain.Publication;
 import com.watchshow.platform.domain.User;
 import com.watchshow.platform.domain.UserHistory;
@@ -48,8 +49,8 @@ public class MobileServiceContext extends AbstractServiceContext {
 	private Method currentMethod;
 	private String passedServiceName;
 	
-	public MobileServiceContext(String serviceName, String appURL, String realpath) {
-		super(serviceName, appURL, realpath);
+	public MobileServiceContext(BaseDomainObject user, String serviceName, String appURL, String realpath) {
+		super(user, serviceName, appURL, realpath);
 		try {
 			currentMethod = getClass().getDeclaredMethod(serviceName, String.class);
 		} catch (SecurityException e) {

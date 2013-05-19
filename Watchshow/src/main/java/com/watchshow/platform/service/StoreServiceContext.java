@@ -30,6 +30,7 @@ import com.watchshow.platform.dao.StoreAdminHistoryDao;
 import com.watchshow.platform.dao.StoreAdministratorDao;
 import com.watchshow.platform.dao.WatchDao;
 import com.watchshow.platform.dao.WatchStoreDao;
+import com.watchshow.platform.domain.BaseDomainObject;
 import com.watchshow.platform.domain.Publication;
 import com.watchshow.platform.domain.StoreAdminHistory;
 import com.watchshow.platform.domain.StoreAdministrator;
@@ -55,9 +56,9 @@ public class StoreServiceContext extends AbstractServiceContext {
     	this.IPAddress = IPAddress;
     }
     
-	public StoreServiceContext(String serviceName, String appURL,
+	public StoreServiceContext(BaseDomainObject user, String serviceName, String appURL,
 			String realpath) {
-		super(serviceName, appURL, realpath);
+		super(user, serviceName, appURL, realpath);
 	}
     /**
 	public static StoreServiceContext getService(StoreAdministrator admin, String serviceName, String realPath, String host) {

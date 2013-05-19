@@ -6,22 +6,26 @@ import java.lang.reflect.Method;
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
 
+import com.watchshow.platform.domain.BaseDomainObject;
+
 public class AbstractServiceContext {
 	public static final String INTERNAL_ERROR_REASON = "Internal error";
 	public static final String INTERNAL_ERROR_MESSAGE = "Failed at Requested Server"; 
 	
 	public static Float ServiceVersion = new Float(1.0);
-	public static String ServiceIdentifier = "com.watchshow.service.identifier10";
+	public static String ServiceIdentifier = "com.watchshow.service.absIdentifier";
 	protected String webappRealPath;
 	protected String appHostURL;
 	private Method currentMethod;
 	private String passedServiceName;
+	private BaseDomainObject currentUser;
 	
-	public AbstractServiceContext(String serviceName, String appURL ,String realpath) {
+	public AbstractServiceContext(BaseDomainObject user, String serviceName, String appURL ,String realpath) {
 		try {
 			webappRealPath = realpath;
 			appHostURL = appURL;
 		    passedServiceName = serviceName;
+		    currentUser = user;
 			currentMethod = getClass().getDeclaredMethod(serviceName, String.class);
 		} catch (SecurityException e) {
 			e.printStackTrace();

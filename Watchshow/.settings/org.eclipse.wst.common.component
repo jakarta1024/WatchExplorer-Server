@@ -3,7 +3,7 @@
     <wb-module deploy-name="WatchShow">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/hibernate"/>
         <property name="java-output-path" value="/WatchShow/build/classes"/>
         <property name="context-root" value="WatchShow"/>
     </wb-module>

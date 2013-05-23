@@ -12,6 +12,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
+import org.apache.commons.fileupload.FileItem;
 import org.codehaus.jettison.json.JSONArray;
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
@@ -56,11 +57,11 @@ public class PlatformServiceContext extends AbstractServiceContext {
 		super(user, serviceName, appURL, realPath);
 	}
 
-    public JSONObject execute(String inputData) {
+    public JSONObject execute(String inputData, List<FileItem> uploadFileItems) {
     	JSONObject responseData = null;
 		try {
 			JSONObject decInput = decodeInputData(inputData);
-			responseData = (JSONObject) currentMethod.invoke(this, decInput);
+			responseData = (JSONObject) currentMethod.invoke(this, decInput, uploadFileItems);
 		} catch (IllegalArgumentException e) {
 			e.printStackTrace();
 		} catch (IllegalAccessException e) {
@@ -71,7 +72,7 @@ public class PlatformServiceContext extends AbstractServiceContext {
 		return responseData;
 	}
 	///////////////////////////////////////////////////////////////////////////////
-    protected JSONObject login(JSONObject params) {
+    protected JSONObject login(JSONObject params, List<FileItem> uploadFileItems) {
     	JSONObject response = null;
     	JSONObject outputData = new JSONObject();
     	Integer returnCode = -1;
@@ -104,12 +105,12 @@ public class PlatformServiceContext extends AbstractServiceContext {
     	return response;
     }
     
-    protected JSONObject logout(JSONObject params) {
+    protected JSONObject logout(JSONObject params, List<FileItem> uploadFileItems) {
     	System.out.println("does nothing!");
     	return null;
     }
 	
-	protected JSONObject getUserComplaints(JSONObject params) {
+	protected JSONObject getUserComplaints(JSONObject params, List<FileItem> uploadFileItems) {
 		JSONObject response = null;
 		JSONObject outputData = new JSONObject();
 		UserHistoryDao DAO = new UserHistoryDao();
@@ -143,7 +144,7 @@ public class PlatformServiceContext extends AbstractServiceContext {
 		return response;
 	}
 
-	protected JSONObject getStores(JSONObject params) {
+	protected JSONObject getStores(JSONObject params, List<FileItem> uploadFileItems) {
 		JSONObject response = new JSONObject();
 		JSONObject out = new JSONObject();
 		StoreAdministratorDao DAO = new StoreAdministratorDao();
@@ -227,7 +228,7 @@ public class PlatformServiceContext extends AbstractServiceContext {
 		}
 		return response;
 	}
-	protected JSONObject getAllStores(JSONObject params) {
+	protected JSONObject getAllStores(JSONObject params, List<FileItem> uploadFileItems) {
 		JSONObject response = new JSONObject();
 		JSONObject out = new JSONObject();
 		WatchStoreDao DAO = new WatchStoreDao();
@@ -271,7 +272,7 @@ public class PlatformServiceContext extends AbstractServiceContext {
 		return response;
 	}
 	
-	protected JSONObject getStoreInfo(JSONObject params) {
+	protected JSONObject getStoreInfo(JSONObject params, List<FileItem> uploadFileItems) {
 		JSONObject out = new JSONObject();
 		try {
 			Long id = params.isNull("storeId") ? -1 : params.getLong("storeId");
@@ -299,11 +300,11 @@ public class PlatformServiceContext extends AbstractServiceContext {
 		} 
 		return out;
 	}
-	protected JSONObject addAnnounce( JSONObject params) {
+	protected JSONObject addAnnounce( JSONObject params, List<FileItem> uploadFileItems) {
 		JSONObject data = addBulletin(PlatformBulletin.ANNOUCEMENT, params);
 		return data;
 	}
-	protected JSONObject addNotice( JSONObject params) {
+	protected JSONObject addNotice( JSONObject params, List<FileItem> uploadFileItems) {
 		JSONObject data = addBulletin(PlatformBulletin.NOTICE, params);
 		return data;
 	}
@@ -365,7 +366,7 @@ public class PlatformServiceContext extends AbstractServiceContext {
 		return response;
 	}
 	
-	protected JSONObject getBulletinList(JSONObject params) {
+	protected JSONObject getBulletinList(JSONObject params, List<FileItem> uploadFileItems) {
 		JSONObject response = null;
 		Integer returnCode = -1; String reason = null, message = null;
 		JSONObject outputData = new JSONObject();

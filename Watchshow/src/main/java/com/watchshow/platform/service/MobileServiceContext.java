@@ -6,6 +6,7 @@ import org.hibernate.Transaction;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
+import org.apache.commons.fileupload.FileItem;
 import org.codehaus.jettison.json.JSONArray;
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
@@ -52,45 +53,30 @@ public class MobileServiceContext extends AbstractServiceContext {
 	public MobileServiceContext(BaseDomainObject user, String serviceName, String appURL, String realpath) {
 		super(user, serviceName, appURL, realpath);
 		try {
-			currentMethod = getClass().getDeclaredMethod(serviceName, String.class);
-		} catch (SecurityException e) {
-			e.printStackTrace();
-		} catch (NoSuchMethodException e) {
-			e.printStackTrace();
-		}
-	}
-	/**
-	public static MobileServiceContext createServiceContext(String serviceName, String appURL ,String realpath) {
-		MobileServiceContext service = new MobileServiceContext(serviceName, appURL, realpath);
-		try {
-			service.webappRealPath = realpath;
-			service.appHostURL = appURL;
-		    service.passedServiceName = serviceName;
-			service.currentMethod = service.getClass().getDeclaredMethod(serviceName, String.class);
+			currentMethod = getClass().getDeclaredMethod(serviceName, String.class, List.class);
 		} catch (SecurityException e) {
 			e.printStackTrace();
 		} catch (NoSuchMethodException e) {
 			System.out.println("No such service implemented for " + serviceName);
 			try {
-                service.currentMethod = service.getClass().getDeclaredMethod("serviceNotFound", String.class);
+                currentMethod = getClass().getDeclaredMethod("serviceNotFound", String.class, List.class);
             } catch (NoSuchMethodException e1) {
                 e1.printStackTrace();
             } catch (SecurityException e1) {
                 e1.printStackTrace();
             }
 		}
-		return service;
 	}
-	*/
+
 	/**
 	 * Execute service corresponding to your call
 	 * @param inputData - passed data which will be used by corresponding service method
 	 * @return response data
 	 */
-	public JSONObject execute(String inputData) {
+	public JSONObject execute(String inputData, List<FileItem> uploadFileItems) {
 		JSONObject responseData = null;
 		try {
-			responseData = (JSONObject) currentMethod.invoke(this, inputData);
+			responseData = (JSONObject) currentMethod.invoke(this, inputData, uploadFileItems);
 		} catch (IllegalArgumentException e) {
 			e.printStackTrace();
 		} catch (IllegalAccessException e) {
@@ -100,7 +86,7 @@ public class MobileServiceContext extends AbstractServiceContext {
 		}
 		return responseData;
 	}
-	public JSONObject serviceNotFound(String inputData) throws JSONException {
+	public JSONObject serviceNotFound(String inputData, List<FileItem> uploadFileItems) throws JSONException {
 	    Integer returnCode = 0;
 	    String message = "Service["+ passedServiceName +"] is Not Found!";
     	String reason  = "Service Not Found";
@@ -143,7 +129,7 @@ public class MobileServiceContext extends AbstractServiceContext {
 	 * @return response data represented by a instance of {@link JSONObject}.
 	 * @throws JSONException
 	 */
-	protected JSONObject registerMobileUser(String inputData) {
+	protected JSONObject registerMobileUser(String inputData, List<FileItem> uploadFileItems) {
 		JSONObject response = null;
 		JSONObject decInputData = decodeInputData(inputData);
 		JSONObject outputData = new JSONObject();
@@ -282,7 +268,7 @@ public class MobileServiceContext extends AbstractServiceContext {
 		return response;
 	}
 	
-	protected JSONObject login(String inputData) {
+	protected JSONObject login(String inputData, List<FileItem> uploadFileItems) {
 		JSONObject res = null;
 		JSONObject decInputData = decodeInputData(inputData);
 		String reason = null, message = null;
@@ -336,7 +322,7 @@ public class MobileServiceContext extends AbstractServiceContext {
 		return res;
 	}
 	
-	protected JSONObject logout(String inputData) {
+	protected JSONObject logout(String inputData, List<FileItem> uploadFileItems) {
 		JSONObject res = null;
 		JSONObject outputData = new JSONObject();
 		String reason = null, message = null;
@@ -357,7 +343,7 @@ public class MobileServiceContext extends AbstractServiceContext {
 	 * Return all news headers
 	 * @return
 	 */
-	protected JSONObject getNewsList(String inputData) {
+	protected JSONObject getNewsList(String inputData, List<FileItem> uploadFileItems) {
 		JSONObject res = null;
 		JSONObject outputData = new JSONObject();
 		@SuppressWarnings("unused")
@@ -398,7 +384,7 @@ public class MobileServiceContext extends AbstractServiceContext {
 	 * @param inputData
 	 * @return
 	 */
-	protected JSONObject getNewsItem(String inputData) {
+	protected JSONObject getNewsItem(String inputData, List<FileItem> uploadFileItems) {
 		JSONObject res = null;
 		JSONObject decInputData = decodeInputData(inputData);
 		String reason = null, message = null;
@@ -441,7 +427,7 @@ public class MobileServiceContext extends AbstractServiceContext {
 	 * @param queryData
 	 * @return
 	 */
-	protected JSONObject getWatchList(String queryData) {
+	protected JSONObject getWatchList(String queryData, List<FileItem> uploadFileItems) {
 	    JSONObject res = null;
 	    JSONObject decQuery = decodeInputData(queryData);
 	    JSONObject outputData = new JSONObject();
@@ -519,7 +505,7 @@ public class MobileServiceContext extends AbstractServiceContext {
 	    res = MobileServiceHelper.sharedResponseTemplate(returnCode, reason, message, outputData);
 	    return res;
 	}
-	protected JSONObject getWatch(String queryData) {
+	protected JSONObject getWatch(String queryData, List<FileItem> uploadFileItems) {
 		JSONObject res = null;
 		JSONObject decQuery = decodeInputData(queryData);
 		JSONObject outputData = new JSONObject();
@@ -579,7 +565,7 @@ public class MobileServiceContext extends AbstractServiceContext {
 		return res;
 	}
 	//TODO: page?
-	protected JSONObject getComments(String queryData) {
+	protected JSONObject getComments(String queryData, List<FileItem> uploadFileItems) {
 		JSONObject response = null;
 		JSONObject decQuery = decodeInputData(queryData);
 		JSONObject outputData = new JSONObject();
@@ -656,7 +642,7 @@ public class MobileServiceContext extends AbstractServiceContext {
 	 * @param queryData
 	 * @return
 	 */
-	protected JSONObject addComment(String queryData) {
+	protected JSONObject addComment(String queryData, List<FileItem> uploadFileItems) {
 		JSONObject response = null;
 		JSONObject decQuery = decodeInputData(queryData);
 		JSONObject outputData = new JSONObject();
@@ -755,7 +741,7 @@ public class MobileServiceContext extends AbstractServiceContext {
 		return response;
 	}
 	
-	protected JSONObject getComment(String queryData) {
+	protected JSONObject getComment(String queryData, List<FileItem> uploadFileItems) {
 		JSONObject response = null;
 		JSONObject decInput = decodeInputData(queryData);
 		JSONObject outputData = new JSONObject();

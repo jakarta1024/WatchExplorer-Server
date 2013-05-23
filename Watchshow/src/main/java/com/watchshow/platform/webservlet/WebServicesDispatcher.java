@@ -2,7 +2,10 @@ package com.watchshow.platform.webservlet;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -13,6 +16,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileUploadException;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.codehaus.jettison.json.JSONArray;
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
 import org.hamcrest.core.IsInstanceOf;
@@ -50,6 +58,9 @@ public class WebServicesDispatcher extends HttpServlet {
 	private static final String ActiveUserCookieIdKey = "active_user_cookie_id";
 	private static final String ActivePlatformAdminCookieIdKey = "active_platform_admin_cookie_id";
 	private static final String ActiveStoreAdminCookieIdKey = "active_store_admin_cookie_id";
+	//For store parameters and upload file items
+	private String requestParameters = null;
+	private List<FileItem> uploadFileItems = null;
 		
 	private Map<String, String> serviceIdentifierMap = null;
 	
@@ -75,14 +86,15 @@ public class WebServicesDispatcher extends HttpServlet {
 		String serviceContextIdentifier = null;
 		try {
 			serviceContextIdentifier = getRequestServiceContextIdentifier(request);
-			String requestData = getNormalizedRequestData(request);
-			doResponse(request, response, serviceContextIdentifier, serviceName, requestData);
-		} catch (Exception e1) {
-			e1.printStackTrace();
+			boolean ok = prepareRequestData(request);
+			if (ok)
+				doResponse(request, response, serviceContextIdentifier, serviceName);
+		} catch (Exception e) {
+			e.printStackTrace();
 		} 
 	}
 	
-	private void doResponse(HttpServletRequest request, HttpServletResponse response, String serviceContextIdentifier, String serviceName, String requestData ) throws IOException {
+	private void doResponse(HttpServletRequest request, HttpServletResponse response, String serviceContextIdentifier, String serviceName ) throws IOException {
 		
 		String hostServer = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort();
 		String realPath = request.getServletContext().getRealPath("/");
@@ -90,7 +102,7 @@ public class WebServicesDispatcher extends HttpServlet {
 		
 		if (serviceContextIdentifier.equals(ServiceFactory.MobileServiceContextIdentifier)) {
 			User user = (User) request.getSession().getAttribute(ActiveUserKey);
-			responseData = ServiceFactory.getServiceContext(user, serviceContextIdentifier,serviceName, hostServer, realPath).execute(requestData);
+			responseData = ServiceFactory.getServiceContext(user, serviceContextIdentifier,serviceName, hostServer, realPath).execute(this.requestParameters, this.uploadFileItems);
 			if (serviceName.equalsIgnoreCase("login")) {
 				try {
 					Boolean successful = responseData.getJSONObject("outputData").getBoolean("successful");
@@ -132,7 +144,7 @@ public class WebServicesDispatcher extends HttpServlet {
 				if (serviceName.equalsIgnoreCase("login") || serviceName.equalsIgnoreCase("approve") || serviceName.equalsIgnoreCase("register")) {
 					StoreServiceContext service = (StoreServiceContext) ServiceFactory.getServiceContext(currentAdmin, serviceContextIdentifier,serviceName, hostServer, realPath);
 					service.setIPAddress(ip);
-					responseData = service.execute(requestData, uploadFiles);
+					responseData = service.execute(this.requestParameters, this.uploadFileItems);
 				} 
 				//For login and logout, we need to handle extra things at this time
 				if (serviceName.equalsIgnoreCase("login")) {
@@ -162,7 +174,7 @@ public class WebServicesDispatcher extends HttpServlet {
 			} else {
 				StoreServiceContext service = (StoreServiceContext) ServiceFactory.getServiceContext(currentAdmin, serviceName, realPath, hostServer);
 				service.setIPAddress(ip);
-				responseData = service.execute(requestData, uploadFiles);
+				responseData = service.execute(this.requestParameters, this.uploadFileItems);
 				if (serviceName.equalsIgnoreCase("logout")) {
 					request.getSession().invalidate();
 					response.setHeader("refresh","0;URL="+hostServer+"/StoreWelcome.jsp");
@@ -194,7 +206,7 @@ public class WebServicesDispatcher extends HttpServlet {
 			if (currentAdmin == null) {
 				//for register, login
 				if (serviceName.equalsIgnoreCase("login") || serviceName.equalsIgnoreCase("register")) {
-					responseData = ServiceFactory.getServiceContext(currentAdmin, serviceName, realPath, hostServer).execute(requestData);
+					responseData = ServiceFactory.getServiceContext(currentAdmin, serviceName, realPath, hostServer).execute(this.requestParameters, this.uploadFileItems);
 				} 
 				//for login and logout, we need to handle extra things at this time
 				if (serviceName.equalsIgnoreCase("login")) {
@@ -221,7 +233,11 @@ public class WebServicesDispatcher extends HttpServlet {
 					responseData = PlatformServiceHelper.sharedResponseTemplate(-1, "Required to Login", "Request from unlogined User", new JSONObject());
 				}
 			} else {
-				responseData = ServiceFactory.getServiceContext(currentAdmin, serviceName, realPath, hostServer).execute(requestData);
+				try {
+					responseData = ServiceFactory.getServiceContext(currentAdmin, serviceName, realPath, hostServer).execute(this.requestParameters, this.uploadFileItems);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 				if (serviceName.equalsIgnoreCase("logout")) {
 					request.getSession().invalidate();
 					response.setHeader("refresh","0;URL="+hostServer+"/PlatformAdminLogin.jsp");
@@ -259,59 +275,84 @@ public class WebServicesDispatcher extends HttpServlet {
 		}
 		return serviceCtxtIdentifier;
 	}
-	
-	private String getNormalizedRequestData(HttpServletRequest request) throws ServletException, IOException {
-		String requestMethod = request.getMethod();
-		String inputData = null;
-		if (requestMethod.equalsIgnoreCase("GET")) {
-			Map<String, String[]> maps = request.getParameterMap();
-			java.util.Iterator<Entry<String, String[]>> it = maps.entrySet().iterator();
-			JSONObject json = new JSONObject();
-			while (it.hasNext()) {
-				Map.Entry<String, String[]> entry = it.next();
-				String key = entry.getKey();
-				String[] value = entry.getValue();
-				try {
-					json.put(key, value[0]);
-				} catch (JSONException e) {
-					e.printStackTrace();
+
+	@SuppressWarnings("unchecked")
+	private boolean prepareRequestData(HttpServletRequest request) throws IOException {
+		boolean returnValue = true;
+		if (ServletFileUpload.isMultipartContent(request)) {
+			ServletFileUpload uploadHandler = new ServletFileUpload(new DiskFileItemFactory());
+			List<FileItem> items;
+			try {
+				items = uploadHandler.parseRequest(request);
+				JSONObject formFields = new JSONObject();
+				List<FileItem>  uploadFileItems = new ArrayList<FileItem>();
+				for (FileItem item : items) {
+					if (item.isFormField()) {
+						String paramKey = item.getFieldName();
+						String paramValue = new String(item.getString().getBytes("ISO8859-1"), "UTF-8");
+						formFields.put(paramKey, paramValue);
+					} else {
+						uploadFileItems.add(item);
+					}
 				}
+				JSONObject jsonInput = new JSONObject();
+				jsonInput.put("fields", formFields);
+				this.uploadFileItems = uploadFileItems;
+				this.requestParameters = jsonInput.toString();
+			} catch (FileUploadException e) {
+				e.printStackTrace();
+				returnValue = false;
+			} catch (JSONException e) {
+				e.printStackTrace();
+				returnValue = false;
 			}
-			inputData = json.toString();
-			
-		} else if (requestMethod.equalsIgnoreCase("POST")) {
-			
-			int length = request.getContentLength();
-			String type = request.getContentType();
-			byte buffer[] = new byte[length];
-			InputStream ins = request.getInputStream();
-			int total = 0;
-			int once  = 0;
-			while ((total < length) && (once >= 0)) {
-				once = ins.read(buffer, total, length);
-				total += once;
-			}
-			if (type.equals(UTF8_JSONTYPE)) {
-				String rawData = new String(buffer, "utf-8");
-				try {
-					JSONObject jo = new JSONObject(rawData);
-					inputData = jo.toString();
-				} catch (JSONException e) {
-					e.printStackTrace();
-				} 
-			} else {
-				inputData = new String(buffer, "utf-8");
-			}
-		} else if (requestMethod.equalsIgnoreCase("PUT")){
-			
-		} else if (requestMethod.equalsIgnoreCase("DELETE")) {
-			
 		} else {
-			System.out.println("Other Method <"+requestMethod+"> is not supported now!");
+			String requestMethod = request.getMethod();
+			if (requestMethod.equalsIgnoreCase("GET")) {
+				Map<String, String[]> maps = request.getParameterMap();
+				java.util.Iterator<Entry<String, String[]>> it = maps.entrySet().iterator();
+				JSONObject json = new JSONObject();
+				while (it.hasNext()) {
+					Map.Entry<String, String[]> entry = it.next();
+					String key = entry.getKey();
+					String[] value = entry.getValue();
+					try {
+						json.put(key, value[0]);
+					} catch (JSONException e) {
+						e.printStackTrace();
+						returnValue = false;
+					}
+				}
+				this.requestParameters = json.toString();
+			} else if (requestMethod.equalsIgnoreCase("POST")) {
+				int length = request.getContentLength();
+				String type = request.getContentType();
+				byte buffer[] = new byte[length];
+				InputStream ins = request.getInputStream();
+				int total = 0;
+				int once  = 0;
+				while ((total < length) && (once >= 0)) {
+					once = ins.read(buffer, total, length);
+					total += once;
+				}
+				if (type.equals(UTF8_JSONTYPE)) {
+					String rawData = new String(buffer, "utf-8");
+					try {
+						JSONObject jo = new JSONObject(rawData);
+						this.requestParameters = jo.toString();
+					} catch (JSONException e) {
+						e.printStackTrace();
+						returnValue = false;
+					} 
+				} else {
+					this.requestParameters = new String(buffer, "utf-8");
+				}
+			} else {
+				returnValue = false;
+			}
 		}
-		return inputData;
+		return returnValue;
 	}
-	
 	private String getRequestServiceName (HttpServletRequest request) {
 		String serviceName = null;
 		String pathInfo = request.getPathInfo();

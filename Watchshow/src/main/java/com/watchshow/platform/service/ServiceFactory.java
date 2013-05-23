@@ -20,49 +20,57 @@ public class ServiceFactory {
 	}
 
 	public static AbstractServiceContext getServiceContext(BaseDomainObject user, final String contextIdentifier,
-			Object... initargs) throws Exception {
+			Object... initargs) {
 		Class<? extends AbstractServiceContext> serviceClass = serviceClassDictionary
 				.get(contextIdentifier);
 
 		Class<?>[] params = new Class[] { String.class, String.class, String.class };
-		Constructor<? extends AbstractServiceContext> constructor = serviceClass
-				.getDeclaredConstructor(params);
+		Constructor<? extends AbstractServiceContext> constructor;
 		AbstractServiceContext service = null;
-		if (constructor != null) {
-			service = constructor.newInstance(initargs);
-		} else {
-			constructor = serviceClass.getDeclaredConstructor();
-			if (constructor == null) {
-				throw new Exception(
-						"Can not find constructors for specified Service Context ["
-								+ serviceClass.getSimpleName() + "].");
+		try {
+			constructor = serviceClass.getDeclaredConstructor(params);
+			if (constructor != null) {
+				service = constructor.newInstance(initargs);
+			} else {
+				constructor = serviceClass.getDeclaredConstructor();
+				if (constructor == null) {
+					throw new Exception(
+							"Can not find constructors for specified Service Context ["
+									+ serviceClass.getSimpleName() + "].");
+				}
+				service = constructor.newInstance();
 			}
-			service = constructor.newInstance();
-		}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
 		return service;
 	}
 
 	public static AbstractServiceContext getServiceContext(BaseDomainObject user, final String contextIdentifier,
-			String arg1, String arg2, String arg3) throws Exception {
+			String arg1, String arg2, String arg3) {
 		Class<? extends AbstractServiceContext> serviceClass = serviceClassDictionary
 				.get(contextIdentifier);
 
 		Class<?>[] params = new Class[] {BaseDomainObject.class, String.class, String.class,
 				String.class };
-		Constructor<? extends AbstractServiceContext> constructor = serviceClass
-				.getDeclaredConstructor(params);
+		Constructor<? extends AbstractServiceContext> constructor;
 		AbstractServiceContext service = null;
-		if (constructor != null) {
-			service = constructor.newInstance(user, arg1, arg2, arg3);
-		} else {
-			constructor = serviceClass.getDeclaredConstructor();
-			if (constructor == null) {
-				throw new Exception(
-						"Can not find constructors for specified Service Context ["
-								+ serviceClass.getSimpleName() + "].");
+		try {
+			constructor = serviceClass.getDeclaredConstructor(params);
+			if (constructor != null) {
+				service = constructor.newInstance(user, arg1, arg2, arg3);
+			} else {
+				constructor = serviceClass.getDeclaredConstructor();
+				if (constructor == null) {
+					throw new Exception(
+							"Can not find constructors for specified Service Context ["
+									+ serviceClass.getSimpleName() + "].");
+				}
+				service = constructor.newInstance();
 			}
-			service = constructor.newInstance();
-		}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
 		return service;
 	}
 }

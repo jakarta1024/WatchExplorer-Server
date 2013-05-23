@@ -2,13 +2,15 @@ package com.watchshow.platform.service;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.List;
 
+import org.apache.commons.fileupload.FileItem;
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
 
 import com.watchshow.platform.domain.BaseDomainObject;
 
-public class AbstractServiceContext {
+public abstract class AbstractServiceContext {
 	public static final String INTERNAL_ERROR_REASON = "Internal error";
 	public static final String INTERNAL_ERROR_MESSAGE = "Failed at Requested Server"; 
 	
@@ -26,7 +28,7 @@ public class AbstractServiceContext {
 			appHostURL = appURL;
 		    passedServiceName = serviceName;
 		    currentUser = user;
-			currentMethod = getClass().getDeclaredMethod(serviceName, String.class);
+			currentMethod = getClass().getDeclaredMethod(serviceName, JSONObject.class, List.class);
 		} catch (SecurityException e) {
 			e.printStackTrace();
 		} catch (NoSuchMethodException e) {
@@ -46,10 +48,11 @@ public class AbstractServiceContext {
 	 * @param inputData - passed data which will be used by corresponding service method
 	 * @return response data
 	 */
-	public JSONObject execute(String inputData) {
+	public JSONObject execute(String parameters, List<FileItem> uploadFileItems) {
 		JSONObject responseData = null;
 		try {
-			responseData = (JSONObject) currentMethod.invoke(this, inputData);
+			JSONObject decodedRequestParameters = decodeUpstream(parameters);
+			responseData = (JSONObject) currentMethod.invoke(this, decodedRequestParameters, uploadFileItems );
 		} catch (IllegalArgumentException e) {
 			e.printStackTrace();
 		} catch (IllegalAccessException e) {

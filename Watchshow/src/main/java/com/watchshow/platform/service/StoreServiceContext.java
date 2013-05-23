@@ -60,21 +60,7 @@ public class StoreServiceContext extends AbstractServiceContext {
 			String realpath) {
 		super(user, serviceName, appURL, realpath);
 	}
-    /**
-	public static StoreServiceContext getService(StoreAdministrator admin, String serviceName, String realPath, String host) {
-		StoreServiceContext service = new StoreServiceContext(serviceName, host, realPath);
-        try {
-        	service.hostRealPath = realPath;
-        	service.currentAdmin = admin;
-            service.currentMethod = service.getClass().getDeclaredMethod(serviceName, JSONObject.class, List.class);
-        } catch (SecurityException e) {
-            e.printStackTrace();
-        } catch (NoSuchMethodException e) {
-            System.out.println("No such service implemented for " + serviceName);
-            e.printStackTrace();
-        }
-        return service;
-    }*/
+
     public JSONObject execute(String inputData, List<FileItem> uploadItems) {
     	JSONObject responseData = null;
 		try {

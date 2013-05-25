@@ -289,10 +289,10 @@ public class MobileServiceContext extends AbstractServiceContext {
 			if (user == null) {
 				user = DAO.getUserByEmail(email);
 			}
-			Boolean sucessed = false;
+			Boolean succeed = false;
 			if (user != null) {
 				if (user.getPassword().equals(password)) {
-					sucessed = true;
+					succeed = true;
 				} else {
 					reason = "Wrong password!";
 					message = "Login Failed";
@@ -303,15 +303,15 @@ public class MobileServiceContext extends AbstractServiceContext {
 				reason = "User with Name: <"+username+"> or Email: <"+email+"> does not exist!";
 				returnCode = 0;
 			}
-			outputData.put("successful", sucessed.toString());
-			if (sucessed) {
+			outputData.put("succeed", succeed.toString());
+			if (succeed) {
 				outputData.put("userId", user.getIdentifier().toString());
 				outputData.put("username", user.getUserName());
 				outputData.put("avatarURL", user.getAvatarURL());
 			}
-		} catch(Exception ex) {
+		} catch(JSONException ex) {
 			ex.printStackTrace();
-			message = Internal_Error_Message;
+			message = ex.getLocalizedMessage();
 			reason = Internal_Error_Reason;
 			returnCode = -1;
 		} finally {

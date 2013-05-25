@@ -1,5 +1,5 @@
 var sk = ["Mobile","Platform", "Store"];
-var skpattern = ["mobileuser/services/", "platform/admin/", "store/admin/"];
+var skpattern = ["services/mobile/", "services/platform/", "services/store/"];
 var services = [
                 ["registerMobileUser","login","logout","addComment","getComments", "getComment", "getNewsList","getNewsItem","getWatchList","getWatch"],
                 ["getWatchList","getWatch","login","logout", "addBulletin", "getBulletins", "getBulletinItem", "getStores"],

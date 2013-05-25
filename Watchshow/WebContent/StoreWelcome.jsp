@@ -92,7 +92,7 @@
 
 			<div class="box box-info">输入表店管理员用户名密码</div>
 
-			<form id="loginform" class="cmxform" action="store/admin/login" method="post">
+			<form id="loginform" class="cmxform" action="services/store/login" method="post">
 
 				<p>
 					<label class="required" for="storenumber">表店名:</label><br /> <input

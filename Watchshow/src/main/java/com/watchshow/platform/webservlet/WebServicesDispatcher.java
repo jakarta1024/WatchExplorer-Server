@@ -105,8 +105,9 @@ public class WebServicesDispatcher extends HttpServlet {
 			responseData = ServiceFactory.getServiceContext(user, serviceContextIdentifier,serviceName, hostServer, realPath).execute(this.requestParameters, this.uploadFileItems);
 			if (serviceName.equalsIgnoreCase("login")) {
 				try {
-					Boolean successful = responseData.getJSONObject("outputData").getBoolean("successful");
-					if (successful) {
+					//Do something about cookie and session 
+					Boolean succeed = responseData.getJSONObject("outputData").getBoolean("succeed");
+					if (succeed) {
 						String adminname = responseData.getJSONObject("outputData").getString("username");
 						request.getSession().setAttribute("username",adminname);
 						Cookie nameCookie = new Cookie("username", adminname);
@@ -117,7 +118,6 @@ public class WebServicesDispatcher extends HttpServlet {
 					} else {
 						response.setHeader("refresh","0;URL="+hostServer+"/PlatformAdminLogin.jsp");
 					}
-					
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
@@ -260,12 +260,13 @@ public class WebServicesDispatcher extends HttpServlet {
 	
 	private String getRequestServiceContextIdentifier(HttpServletRequest request) throws Exception {
 		String serviceCtxtIdentifier = null;
-		String pathInfo = request.getPathInfo();
+		String pathInfo = request.getPathInfo().substring(1); //REmove first slash
+	
 		if (pathInfo != null && !pathInfo.isEmpty()) {
 			String pieces[] = pathInfo.split("/");
 			if (pieces.length >= 2) {
 				int pos = pieces.length - 1;
-				serviceCtxtIdentifier = pieces[pos];
+				serviceCtxtIdentifier = pieces[pos - 1]; //start at 0
 			} else {
 				throw new Exception("URL path info has some issues!");
 			}
@@ -308,7 +309,8 @@ public class WebServicesDispatcher extends HttpServlet {
 			}
 		} else {
 			String requestMethod = request.getMethod();
-			if (requestMethod.equalsIgnoreCase("GET")) {
+			String type = request.getContentType();
+			if (requestMethod.equalsIgnoreCase("GET") || type.equalsIgnoreCase("application/x-www-form-urlencoded")) {
 				Map<String, String[]> maps = request.getParameterMap();
 				java.util.Iterator<Entry<String, String[]>> it = maps.entrySet().iterator();
 				JSONObject json = new JSONObject();
@@ -326,7 +328,6 @@ public class WebServicesDispatcher extends HttpServlet {
 				this.requestParameters = json.toString();
 			} else if (requestMethod.equalsIgnoreCase("POST")) {
 				int length = request.getContentLength();
-				String type = request.getContentType();
 				byte buffer[] = new byte[length];
 				InputStream ins = request.getInputStream();
 				int total = 0;

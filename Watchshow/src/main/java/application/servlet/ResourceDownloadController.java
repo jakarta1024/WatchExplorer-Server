@@ -1,4 +1,4 @@
-package application.webservlet;
+package application.servlet;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;

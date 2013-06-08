@@ -1,4 +1,4 @@
-package application.webservlet;
+package application.servlet;
 
 import java.awt.image.BufferedImage;
 import java.io.*;

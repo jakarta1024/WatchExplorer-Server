@@ -11,7 +11,7 @@
   </listener>
   <servlet>
     <servlet-name>platform-init</servlet-name>
-    <servlet-class>com.watchshow.platform.webservlet.ServerContextInitializer</servlet-class>
+    <servlet-class>application.servlet.ServerContextInitializer</servlet-class>
     <init-param>
       <param-name>log4j</param-name>
       <param-value>WEB-INF/log4j.properties</param-value>

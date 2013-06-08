@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="com.watchshow.platform.dao.*"%>
-<%@ page import="com.watchshow.common.util.*"%>
-<%@ page import="com.watchshow.platform.domain.*"%>
+<%@ page import="application.dao.*"%>
+<%@ page import="commons.util.*"%>
+<%@ page import="application.model.*"%>
 <%
 	/* setup basePath */
 	String path = request.getContextPath();

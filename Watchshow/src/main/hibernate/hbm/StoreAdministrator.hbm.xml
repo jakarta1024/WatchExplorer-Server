@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 3, 2012 5:34:56 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="application.model.StoreAdministrator" table="T_STORE_ADMINS" lazy="false">
+         <!-- ID and Version mappings -->
+		<id name="identifier" type="java.lang.Long" column="ADMIN_ID">
+      		<generator class="increment"/>
+    	</id>
+    	<version name="version" column="VERSION" type="java.lang.Integer"/>
+    	
+        <!-- Attributes -->
+        <property name="loginName" type="java.lang.String">
+            <column name="LOGIN_NAME" length="16" unique="true" not-null="true"/>
+        </property>
+        <property name="verifyEmail" type="java.lang.String">
+            <column name="VERIFY_EMAIL" length="128" unique="true" not-null="true"/>
+        </property>
+        <property name="password" type="java.lang.String">
+            <column name="PASSWORD" length="16" not-null="true"/>
+        </property>
+        <property name="passwordMD5" type="java.lang.String">
+            <column name="PASSWORD_MD5" length="32"/>
+        </property>
+        <property name="role" type="java.lang.String">
+            <column name="ROLE" length="45"/>
+        </property>
+        <property name="authorised" type="java.lang.Boolean">
+        	<column name="AUTHORISED"/>
+        </property>
+        <!-- Relationships -->
+        <!-- one-to-many -->
+        <set name="adminHistories" table="T_ADMIN_HISTORIES" inverse="true" cascade="save-update" lazy="extra">
+        	<!-- Column 用于指定外键列名 -->
+        	<key column="ADMIN_ID" not-null="true"/>
+        	<!-- 关系映射类 -->
+        	<one-to-many class="application.model.StoreAdminHistory" />
+        </set>
+        
+         <set name="publications" table="T_PUBLICATIONS" inverse="true" cascade="save-update" lazy="extra">
+        	<!-- Column 用于指定外键列名 -->
+        	<key column="PUBLISHER_ID" not-null="true"/>
+        	<!-- 关系映射类 -->
+        	<one-to-many class="application.model.Publication" />
+        </set>
+        
+        <many-to-one name="store" 
+        			 class="application.model.WatchStore" 
+        			 fetch="select"
+        			 cascade="save-update">
+            <column name="STORE_ID" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

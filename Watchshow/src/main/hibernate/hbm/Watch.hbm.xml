@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 3, 2012 5:34:56 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="application.model.Watch" table="T_WATCHES" lazy="false">
+        <!-- ID and Version mappings -->
+		<id name="identifier" type="java.lang.Long" column="WATCH_ID">
+      		<generator class="increment"/>
+    	</id>
+    	<version name="version" column="VERSION" type="java.lang.Integer"/>
+    	
+        <!-- Attributes -->
+        <property name="productSerialNumber" type="java.lang.String">
+            <column name="PRODUCT_SN" />
+        </property>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+         <property name="price" type="java.lang.Float">
+            <column name="PRICE" />
+        </property>
+        <property name="discount" type="java.lang.Float">
+            <column name="DISCOUNT" />
+        </property>
+        <property name="description" type="java.lang.String">
+            <column name="DESCRIPTION" />
+        </property>
+        <property name="simpleDescription" type="java.lang.String">
+            <column name="SIMPLE_DESC" />
+        </property>
+        <property name="descResourceURL" type="java.lang.String">
+            <column name="DESC_RESOURCE_URL" />
+        </property>
+        <property name="barcode" type="java.lang.String">
+            <column name="BARCODE" />
+        </property>
+        <property name="twodimCode" type="java.lang.String">
+            <column name="TWODIMCODE" />
+        </property>
+        <property name="generation" type="java.lang.Integer">
+            <column name="GENERATION" />
+        </property>
+        <property name="rateIdea" type="java.lang.Integer">
+            <column name="RATE_IDEA" />
+        </property>
+        <property name="rateMovement" type="java.lang.Integer">
+            <column name="RATE_MOVEMENT" />
+        </property>
+        <property name="rateLook" type="java.lang.Integer">
+            <column name="RATE_LOOK" />
+        </property>
+        <property name="rateProspect" type="java.lang.Integer">
+            <column name="RATE_PROSPECT" />
+        </property>
+        <property name="ratePrice" type="java.lang.Integer">
+            <column name="RATE_PRICE" />
+        </property>
+        <property name="rateSum" type="java.lang.Integer">
+            <column name="RATE_SUM" />
+        </property>
+        
+        <property name="movement" type="java.lang.String">
+            <column name="MOVEMENT" />
+        </property>
+        <property name="material" type="java.lang.String">
+            <column name="MATERIAL" />
+        </property>
+        <property name="size" type="java.lang.String">
+            <column name="SIZE" />
+        </property>
+        <property name="style" type="java.lang.String">
+            <column name="STYLE" />
+        </property>
+        <property name="architecture" type="java.lang.String">
+            <column name="ARCHITECTURE" />
+        </property>
+        <property name="function" type="java.lang.String">
+            <column name="FUNCTION" />
+        </property>
+        <property name="watchband" type="java.lang.String">
+            <column name="WATCHBAND" />
+        </property>
+        <property name="modifyDate" type="java.util.Date"> <!-- can be obtained at relationship -->
+            <column name="DATE_MODIFY" />
+        </property>
+        <property name="marketTime" type="java.util.Date">
+            <column name="MARKET_TIME" />
+        </property>
+        
+        <many-to-one name="publication" 
+        			class="application.model.Publication"
+        			cascade="save-update"
+        			fetch="select">
+            <column name="PUBLICATION_ID" not-null="false"/>
+        </many-to-one>
+        <many-to-one name="store" 
+        			class="application.model.WatchStore"
+        			cascade="save-update"
+        			fetch="select">
+            <column name="STORE_ID" not-null="true"/>
+        </many-to-one>
+        
+        <many-to-one name="brand"
+        			class="application.model.WatchBrand"
+        			cascade="save-update"
+        			fetch="select">
+            <column name="BRAND_ID" not-null="true"/>
+        </many-to-one>
+        <set name="userHistories" table="T_USER_HISTORIES" inverse="true" lazy="extra">
+            <key>
+                <column name="VIEWED_WATCH_ID" />
+            </key>
+            <one-to-many class="application.model.UserHistory" />
+        </set>
+         <set name="adminHistories" table="T_ADMIN_HISTORIES" inverse="true" lazy="extra">
+            <key>
+                <column name="OPERTED_WATCH_ID" />
+            </key>
+            <one-to-many class="application.model.StoreAdminHistory" />
+        </set>
+        <!-- Note: relationships between admin_history and self, between user_history and self are not necessary to setup -->
+    </class>
+</hibernate-mapping>

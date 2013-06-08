@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<%@ page import="com.watchshow.platform.dao.*" %>
-<%@ page import="com.watchshow.platform.domain.*" %>
+<%@ page import="application.dao.*" %>
+<%@ page import="application.model.*" %>
 <%@ page language="java" pageEncoding="UTF-8"
     contentType="text/html; charset=UTF-8" isELIgnored="false"%>
 <%

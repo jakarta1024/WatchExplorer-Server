@@ -7,5 +7,5 @@ encoding//WebContent/StoreAdminProfile.jsp=UTF-8
 encoding//WebContent/platforms/StoreApplySheet.jsp=UTF-8
 encoding//WebContent/stores/StoreLogs.jsp=UTF-8
 encoding//WebContent/stores/WatchPreview.jsp=UTF-8
-encoding//src/main/java/com/watchshow/common/util/HibernateUtil.java=UTF-8
+encoding//src/main/java/commons/util/HibernateUtil.java=UTF-8
 encoding/<project>=UTF-8

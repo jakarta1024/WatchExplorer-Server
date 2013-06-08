@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 24, 2012 10:43:08 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="application.model.Publication" table="T_PUBLICATIONS" lazy="false">
+           <!-- ID and Version mappings -->
+		<id name="identifier" type="java.lang.Long" column="PUBLICATION_ID">
+      		<generator class="increment"/>
+    	</id>
+    	<version name="version" column="VERSION" type="java.lang.Integer"/>
+    	
+        <property name="title" type="java.lang.String">
+            <column name="TITLE" />
+        </property>
+        <property name="subtitle" type="java.lang.String">
+            <column name="SUBTITLE" />
+        </property>
+        <property name="content" type="java.lang.String">
+            <column name="CONTENT" />
+        </property>
+        <property name="kind" type="java.lang.String">
+            <column name="KIND" />
+        </property>
+        <property name="externalURL" type="java.lang.String">
+            <column name="EXTERNAL_URL" />
+        </property>
+        <property name="resourcesURL" type="java.lang.String">
+            <column name="RESOURCES_URL" />
+        </property>
+        <many-to-one name="publisher" 
+        			column="PUBLISHER_ID" 
+        			class="application.model.StoreAdministrator" 
+        			fetch="select"/>
+        			
+        <set name="referredWatches" table="T_WATCHES" inverse="true" lazy="extra">
+            <key>
+                <column name="PUBLICATION_ID" />
+            </key>
+            <one-to-many class="application.model.Watch" />
+        </set>
+        
+        <set name="histories" table="T_ADMIN_HISTORIES" inverse="true" lazy="extra">
+            <key>
+                <column name="PUBLICATION_ID" />
+            </key>
+            <one-to-many class="application.model.StoreAdminHistory" />
+        </set>
+    </class>
+</hibernate-mapping>

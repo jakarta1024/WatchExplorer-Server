@@ -2,7 +2,6 @@ package application.servlet;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -20,11 +19,8 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.codehaus.jettison.json.JSONArray;
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
-import org.hamcrest.core.IsInstanceOf;
-
 import application.dao.PlatformAdministratorDao;
 import application.dao.StoreAdministratorDao;
 import application.helper.PlatformServiceHelper;
@@ -32,8 +28,6 @@ import application.helper.StoreServiceHelper;
 import application.model.PlatformAdministrator;
 import application.model.StoreAdministrator;
 import application.model.User;
-import application.service.AbstractServiceContext;
-import application.service.PlatformServiceContext;
 import application.service.ServiceFactory;
 import application.service.StoreServiceContext;
 
@@ -56,6 +50,7 @@ public class WebServicesDispatcher extends HttpServlet {
 	private static final String ActiveStoreAdminKey = "active_store_admin";
 	private static final String ActiveUserKey = "active_user_admin";
 	
+	@SuppressWarnings("unused")
 	private static final String ActiveUserCookieIdKey = "active_user_cookie_id";
 	private static final String ActivePlatformAdminCookieIdKey = "active_platform_admin_cookie_id";
 	private static final String ActiveStoreAdminCookieIdKey = "active_store_admin_cookie_id";

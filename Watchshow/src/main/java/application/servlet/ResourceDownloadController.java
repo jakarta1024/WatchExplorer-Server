@@ -174,7 +174,7 @@ public class ResourceDownloadController extends HttpServlet {
 			mimetype = "application/json";
 			encoding = "charset="+"UTF-8";
 			response.setContentType(mimetype + encoding);
-			response.getWriter().print("{\"error\":\"ture\", \"message\":\"指定文件不存在！\"}");
+			response.getWriter().print("{\"error\":\"ture\", \"message\":\"File you specified does not exist！\"}");
 			return;
 		}
 		

@@ -2,362 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ec969ea-67b3-427e-9040-439bbe183445" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Web_App_Libraries.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/.classpath" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/.project" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/.settings/.jsdtscope" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/.settings/org.eclipse.core.resources.prefs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/.settings/org.eclipse.core.runtime.prefs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/.settings/org.eclipse.jdt.core.prefs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/.settings/org.eclipse.jst.j2ee.ejb.annotations.xdoclet.prefs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/.settings/org.eclipse.jst.jsp.core.prefs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/.settings/org.eclipse.ltk.core.refactoring.prefs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/.settings/org.eclipse.wst.common.component" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/.settings/org.eclipse.wst.common.project.facet.core.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/.settings/org.eclipse.wst.html.core.prefs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/.settings/org.eclipse.wst.jsdt.ui.superType.container" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/.settings/org.eclipse.wst.jsdt.ui.superType.name" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/.settings/org.eclipse.wst.validation.prefs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/.settings/org.eclipse.wst.ws.service.policy.prefs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/.settings/org.jboss.ide.eclipse.as.core.prefs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/AdminHome.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/Footer.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/META-INF/MANIFEST.MF" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/PlatformAdminHome.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/PlatformAdminLogin.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/ReturnLoginPage.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/StoreAdminHome.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/StoreAdminLoginFailed.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/StoreAdminProfile.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/StoreWelcome.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/WEB-INF/lib/antlr-2.7.7.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/WEB-INF/lib/asm-3.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/WEB-INF/lib/c3p0-0.9.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/WEB-INF/lib/commons-beanutils-1.8.3.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/WEB-INF/lib/commons-collections-3.2.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/WEB-INF/lib/commons-csv-1.0-20121205.152120-148.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/WEB-INF/lib/commons-fileupload-1.2.2.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/WEB-INF/lib/commons-io-2.4.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/WEB-INF/lib/commons-lang3-3.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/WEB-INF/lib/commons-logging-1.1.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/WEB-INF/lib/dom4j-1.6.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/WEB-INF/lib/ehcache-core-2.6.3.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/WEB-INF/lib/hibernate-c3p0-4.1.8.Final.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/WEB-INF/lib/hibernate-commons-annotations-4.0.1.Final.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/WEB-INF/lib/hibernate-core-4.1.8.Final.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/WEB-INF/lib/hibernate-ehcache-4.1.8.Final.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/WEB-INF/lib/hibernate-jpa-2.0-api-1.0.1.Final.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/WEB-INF/lib/imgscalr-lib-4.2.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/WEB-INF/lib/jackson-annotations-2.1.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/WEB-INF/lib/jackson-core-2.1.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/WEB-INF/lib/jackson-databind-2.1.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/WEB-INF/lib/javassist-3.15.0-GA.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/WEB-INF/lib/jboss-logging-3.1.0.GA.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/WEB-INF/lib/jboss-transaction-api_1.1_spec-1.0.0.Final.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/WEB-INF/lib/jettison-1.3.3.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/WEB-INF/lib/jsr311-api-1.1.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/WEB-INF/lib/jstl.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/WEB-INF/lib/junit-4.11.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/WEB-INF/lib/log4j-1.2.17.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/WEB-INF/lib/mime-util-2.1.3.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/WEB-INF/lib/mysql-connector-java-5.1.22-bin.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/WEB-INF/lib/slf4j-api-1.6.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/WEB-INF/lib/slf4j-log4j12-1.7.2.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/WEB-INF/lib/standard.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/WEB-INF/lib/validation-api-1.0.0.GA.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/WEB-INF/log4j.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/WEB-INF/web.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/cors/postmessage.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/cors/result.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/css/calendarTable.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/css/custom.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/css/dataTable.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/css/facebox.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/css/imagePreview.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/css/invalid.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/css/jquery-ui.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/css/jquery.fileupload-ui.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/css/jwysiwyg.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/css/nyroModal.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/css/platform.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/css/reset.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/css/style.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/css/tagInput.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/css/widgets.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/debug.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/debug/app-min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/debug/app-min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/debug/jsoneditor-min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/debug/jsoneditor-min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/debug/jsonlint.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/debug/services.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/errorpages/ErrorHandler.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/errorpages/error400.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/errorpages/error404.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/errorpages/error500.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/platforms/AddAdmin.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/platforms/AddAnnounce.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/platforms/AddNotice.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/platforms/AddWatch.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/platforms/ApprovingStore.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/platforms/PlatformAuth.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/platforms/PlatformComplaints.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/platforms/PlatformLog.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/platforms/PlatformProfile.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/platforms/PlatformPublications.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/platforms/PlatformSettings.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/platforms/PlatformStatistic.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/platforms/PlatformStores.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/platforms/StoreAdminInfo.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/platforms/StoreApplySheet.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/platforms/StoreDetail.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/add.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/add_pic.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/btn-overlay.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/button.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/close.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/datatable/Sorting icons.psd" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/datatable/back_disabled.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/datatable/back_enabled.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/datatable/back_enabled_hover.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/datatable/forward_disabled.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/datatable/forward_enabled.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/datatable/forward_enabled_hover.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/datatable/sort_asc.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/datatable/sort_asc_disabled.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/datatable/sort_both.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/datatable/sort_desc.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/datatable/sort_desc_disabled.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/del.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/del_pic.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/edit.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/elastislide/bg.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/elastislide/black_denim.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/elastislide/loading.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/elastislide/loading_dark.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/elastislide/nav.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/footer.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/header.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/header_background.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/information.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/jquery-ui/animated-overlay.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/jquery-ui/ui-bg_flat_0_aaaaaa_40x100.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/jquery-ui/ui-bg_flat_75_ffffff_40x100.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/jquery-ui/ui-bg_glass_55_fbf9ee_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/jquery-ui/ui-bg_glass_65_ffffff_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/jquery-ui/ui-bg_glass_75_dadada_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/jquery-ui/ui-bg_glass_75_e6e6e6_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/jquery-ui/ui-bg_glass_95_fef1ec_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/jquery-ui/ui-bg_highlight-soft_75_cccccc_1x100.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/jquery-ui/ui-icons_222222_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/jquery-ui/ui-icons_2e83ff_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/jquery-ui/ui-icons_454545_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/jquery-ui/ui-icons_888888_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/jquery-ui/ui-icons_cd0a0a_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/jquery.wysiwyg.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/loading.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/msg-error.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/msg-ok.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/nyro/ajaxLoader.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/nyro/close.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/nyro/next.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/nyro/prev.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/pagging.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/platform/b.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/platform/bg-body.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/platform/bg-button-green.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/platform/bg-content-box.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/platform/bg-form-field.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/platform/bg-login-top.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/platform/bg-login.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/platform/bg-menu-item-current.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/platform/bg-menu-item-green.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/platform/bg-radial-gradient.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/platform/bg-sidebar.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/platform/bl.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/platform/br.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/platform/closelabel.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/platform/icons/bullet_black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/platform/icons/clock_48.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/platform/icons/comment_48.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/platform/icons/cross.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/platform/icons/cross_circle.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/platform/icons/cross_grey_small.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/platform/icons/exclamation.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/platform/icons/hammer_screwdriver.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/platform/icons/image_add_48.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/platform/icons/information.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/platform/icons/jquery.wysiwyg.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/platform/icons/paper_content_pencil_48.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/platform/icons/pencil.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/platform/icons/pencil_48.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/platform/icons/tick_circle.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/platform/loading.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/platform/menu-current-arrow.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/platform/shortcut-button-bg.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/platform/tl.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/platform/tr.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/progressbar.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/tab.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/th.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/toggle.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/user_32.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/resources/img/valid.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/script/js/basic.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/script/js/highcharts/adapters/mootools-adapter.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/script/js/highcharts/adapters/prototype-adapter.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/script/js/highcharts/highcharts-more.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/script/js/highcharts/highcharts.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/script/js/highcharts/modules/canvas-tools.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/script/js/highcharts/modules/data.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/script/js/highcharts/modules/exporting.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/script/js/highcharts/themes/dark-blue.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/script/js/highcharts/themes/dark-green.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/script/js/highcharts/themes/gray.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/script/js/highcharts/themes/grid.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/script/js/highcharts/themes/skies.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/script/js/image.preview.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/script/js/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/script/js/jquery/cors/jquery.postmessage-transport.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/script/js/jquery/cors/jquery.xdr-transport.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/script/js/jquery/flot/jquery.flot.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/script/js/jquery/flot/jquery.flot.selection.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/script/js/jquery/jquery-1.8.3.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/script/js/jquery/jquery-ui.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/script/js/jquery/jquery.dataTables.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/script/js/jquery/jquery.fileupload-fp.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/script/js/jquery/jquery.fileupload-ui.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/script/js/jquery/jquery.fileupload.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/script/js/jquery/jquery.form.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/script/js/jquery/jquery.highlight.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/script/js/jquery/jquery.iframe-transport.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/script/js/jquery/jquery.nyroModal.custom.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/script/js/jquery/jquery.sparkline.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/script/js/jquery/jquery.superfish.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/script/js/jquery/jquery.supersubs.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/script/js/jquery/jquery.tagInput.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/script/js/jquery/jquery.tipTip.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/script/js/jquery/jquery.ui.core.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/script/js/jquery/jquery.ui.tabs.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/script/js/jquery/jquery.ui.widget.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/script/js/jquery/jquery.validate.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/script/js/jquery/jquery.validate_pack.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/script/js/jquery/jquery.wysiwyg.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/script/js/jquery/jquerypp.custom.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/script/js/libs/facebox.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/script/js/libs/geoSelector.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/script/js/libs/swfobject.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/script/js/locale.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/script/js/platformAdmin.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/script/js/templates.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/stores/AddNews.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/stores/AddPublication.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/stores/AddWatch.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/stores/NewsPreview.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/stores/StoreLogs.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/stores/StoreNews.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/stores/StorePublication.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/stores/StoreWatches.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/WebContent/stores/WatchPreview.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/hibernate/config/hibernate.cfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/hibernate/config/hibernate_ehcache.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/hibernate/config/service.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/hibernate/hbm/PlatformAdminLog.hbm.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/hibernate/hbm/PlatformAdministrator.hbm.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/hibernate/hbm/PlatformBulletin.hbm.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/hibernate/hbm/Publication.hbm.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/hibernate/hbm/StoreAdminHistory.hbm.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/hibernate/hbm/StoreAdministrator.hbm.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/hibernate/hbm/User.hbm.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/hibernate/hbm/UserHistory.hbm.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/hibernate/hbm/VisitingHistory.hbm.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/hibernate/hbm/Watch.hbm.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/hibernate/hbm/WatchBrand.hbm.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/hibernate/hbm/WatchStore.hbm.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/hibernate/sqlscript/DB_WATCHSHOW.mwb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/hibernate/sqlscript/db_watchshow.sql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/application/dao/PlatformAdminLogDao.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/application/dao/PlatformAdministratorDao.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/application/dao/PlatformBulletinDao.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/application/dao/PublicationDao.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/application/dao/StoreAdminHistoryDao.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/application/dao/StoreAdministratorDao.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/application/dao/UserDao.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/application/dao/UserHistoryDao.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/application/dao/VisitingHistoryDao.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/application/dao/WatchBrandDao.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/application/dao/WatchDao.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/application/dao/WatchStoreDao.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/application/filter/CommonSessionFilter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/application/helper/IAbstractHelper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/application/helper/MobileServiceHelper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/application/helper/PlatformServiceHelper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/application/helper/ResponseRender.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/application/helper/ServerResourceHelper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/application/helper/ServiceHelperFactory.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/application/helper/StoreServiceHelper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/application/model/BaseDomainObject.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/application/model/PlatformAdminLog.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/application/model/PlatformAdministrator.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/application/model/PlatformBulletin.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/application/model/Publication.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/application/model/StoreAdminHistory.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/application/model/StoreAdministrator.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/application/model/User.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/application/model/UserHistory.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/application/model/VisitingHistory.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/application/model/Watch.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/application/model/WatchBrand.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/application/model/WatchStore.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/application/service/AbstractServiceContext.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/application/service/MobileServiceContext.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/application/service/PlatformServiceContext.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/application/service/ServiceFactory.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/application/service/StoreServiceContext.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/application/servlet/FieldsCheckController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/application/servlet/ResourceDownloadController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/application/servlet/ServerContextInitializer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/application/servlet/StoreRegisterHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/application/servlet/WebServicesDispatcher.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/commons/dao/BaseHibernateDao.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/commons/dao/ConditionQuery.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/commons/dao/IBaseDao.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/commons/dao/OrderBy.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/commons/pagination/IPageContext.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/commons/pagination/NavigationTag.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/commons/pagination/NavigationTag2.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/commons/pagination/Page.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/commons/pagination/PageContext.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/commons/pagination/PageUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/commons/pagination/QuickPageContext.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/commons/util/Assert.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/commons/util/BaseException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/commons/util/ConstantsProvider.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/commons/util/DatastoreException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/commons/util/EncryptUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/commons/util/FileManagerUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/commons/util/HibernateUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/commons/util/KeySynchronizer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/commons/util/RemoteClientInfoUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/commons/web/BackURLFilter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/commons/web/DateEditor.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/commons/web/DateFormat.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/commons/web/DateFormatValidator.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/commons/web/DateTimeEditor.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/commons/web/DateTimeFormat.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/commons/web/DateTimeFormatValidator.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/commons/web/EnumEditor.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/commons/web/GZIPFilter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/commons/web/GZIPResponseStream.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/commons/web/GZIPResponseWrapper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/commons/web/ImageFilter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/commons/web/ImageResponseStream.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/commons/web/ImageResponseWrapper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Watchshow/src/main/java/commons/web/RandomCodeGenerator.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WatchExplorer/.settings/.jsdtscope" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WatchExplorer/.settings/org.eclipse.core.resources.prefs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WatchExplorer/.settings/org.eclipse.core.runtime.prefs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WatchExplorer/.settings/org.eclipse.jdt.core.prefs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WatchExplorer/.settings/org.eclipse.jst.j2ee.ejb.annotations.xdoclet.prefs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WatchExplorer/.settings/org.eclipse.jst.jsp.core.prefs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WatchExplorer/.settings/org.eclipse.ltk.core.refactoring.prefs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WatchExplorer/.settings/org.eclipse.wst.common.component" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WatchExplorer/.settings/org.eclipse.wst.common.project.facet.core.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WatchExplorer/.settings/org.eclipse.wst.html.core.prefs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WatchExplorer/.settings/org.eclipse.wst.jsdt.ui.superType.container" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WatchExplorer/.settings/org.eclipse.wst.jsdt.ui.superType.name" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WatchExplorer/.settings/org.eclipse.wst.validation.prefs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WatchExplorer/.settings/org.eclipse.wst.ws.service.policy.prefs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WatchExplorer/.settings/org.jboss.ide.eclipse.as.core.prefs" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WatchExplorer/src/main/java/application/dao/PlatformAdministratorDao.java" afterPath="$PROJECT_DIR$/WatchExplorer/src/main/java/application/dao/PlatformAdministratorDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WatchExplorer/WatchExplorer.iml" afterPath="$PROJECT_DIR$/WatchExplorer/WatchExplorer.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="WatchExplorer-Server.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="9ec969ea-67b3-427e-9040-439bbe183445" time="1371554302642" ignored="false" />
+    <file path="/Dummy.txt" changelist="9ec969ea-67b3-427e-9040-439bbe183445" time="1371556211871" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -371,7 +37,13 @@
   <component name="DaemonCodeAnalyzer">
     <disable_hints />
   </component>
+  <component name="DatabaseView">
+    <flatten value="false" />
+    <groupTables value="false" />
+    <sortChildren value="false" />
+  </component>
   <component name="DebuggerManager">
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -408,7 +80,6 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -418,10 +89,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AdminHome.jsp" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/WatchExplorer/WebContent/AdminHome.jsp">
+      <file leaf-file-name="PlatformAdministratorDao.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/WatchExplorer/src/main/java/application/dao/PlatformAdministratorDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="31" selection-start="933" selection-end="933" vertical-scroll-proportion="-0.9536322">
+            <state line="33" column="58" selection-start="1024" selection-end="1024" vertical-scroll-proportion="0.7047478">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WebServicesDispatcher.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WatchExplorer/src/main/java/application/servlet/WebServicesDispatcher.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="350" column="27" selection-start="14392" selection-end="14392" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BaseHibernateDao.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WatchExplorer/src/main/java/commons/dao/BaseHibernateDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="66" column="36" selection-start="2665" selection-end="2665" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -441,6 +130,20 @@
     <option name="myDateState">
       <MyDateState />
     </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/WatchExplorer/src/main/java/application/dao/PlatformAdministratorDao.java" />
+      </list>
+    </option>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="22" />
@@ -473,32 +176,10 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WatchExplorer-Server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Tomcat 7.0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WatchExplorer-Server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-          </PATH>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="WatchExplorer-Server" />
@@ -550,6 +231,96 @@
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="commons" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WatchExplorer-Server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WatchExplorer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="commons" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WatchExplorer-Server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WatchExplorer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="servlet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WatchExplorer-Server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WatchExplorer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -575,28 +346,30 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
+    <property name="recentsLimit" value="5" />
+    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.Font" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/WatchExplorer/WebContent/WEB-INF/lib" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="restartRequiresConfirmation" value="true" />
+    <property name="FullScreen" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="dynamic.classpath" value="false" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Tomcat Server.Tomcat Server">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
@@ -609,6 +382,19 @@
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -637,19 +423,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -688,7 +461,102 @@
       <patterns />
       <method />
     </configuration>
-    <list size="0" />
+    <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
+      <option name="VM_PARAMETERS" value="" />
+      <option name="USER_CFG_CLASS" />
+      <option name="CONTEXT_PROVIDER" />
+      <method />
+    </configuration>
+    <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local">
+      <deployment />
+      <server-settings />
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Tomcat Server" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="WatchExplorer:Web exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_WatchExplorer-Server" />
+      </server-settings>
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <RunnerSettings RunnerId="Cover" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="51570" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method>
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="WatchExplorer:Web exploded" />
+        </option>
+      </method>
+    </configuration>
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="Tomcat Server.Tomcat Server" />
+    </list>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
       <Port>5050</Port>
@@ -722,34 +590,35 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="820" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964131" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964131" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964131" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964131" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24964131" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23672883" sideWeight="0.67" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -812,10 +681,106 @@
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/WatchExplorer/.classpath">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="0" selection-start="627" selection-end="627" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WatchExplorer/.project">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="53" selection-start="965" selection-end="965" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WatchExplorer/src/main/java/application/dao/PlatformAdministratorDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="19" selection-start="360" selection-end="360" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WatchExplorer/WebContent/Footer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="41" selection-start="136" selection-end="136" vertical-scroll-proportion="0.12364761">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/WatchExplorer/WebContent/AdminHome.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="31" selection-start="933" selection-end="933" vertical-scroll-proportion="-0.9536322">
+        <state line="17" column="58" selection-start="741" selection-end="741" vertical-scroll-proportion="27.88">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WatchExplorer/src/main/hibernate/config/hibernate.cfg.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="141" selection-start="657" selection-end="764" vertical-scroll-proportion="0.2185129">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WatchExplorer/src/main/hibernate/sqlscript/db_watchshow.sql">
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="355" column="66" selection-start="15965" selection-end="15965" vertical-scroll-proportion="0.16455697" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WatchExplorer/src/main/hibernate/config/hibernate_ehcache.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="59" selection-start="259" selection-end="259" vertical-scroll-proportion="0.16666667" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WatchExplorer/src/main/hibernate/config/service.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="8" selection-start="399" selection-end="399" vertical-scroll-proportion="0.23809524" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WatchExplorer/WebContent/debug/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="9" selection-start="629" selection-end="629" vertical-scroll-proportion="0.29135054" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WatchExplorer/.project">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="53" selection-start="965" selection-end="965" vertical-scroll-proportion="0.68041235" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WatchExplorer/.classpath">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="0" selection-start="627" selection-end="627" vertical-scroll-proportion="0.27260813" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WatchExplorer/src/main/java/application/servlet/WebServicesDispatcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="350" column="27" selection-start="14392" selection-end="14392" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WatchExplorer/src/main/hibernate/hbm/PlatformAdministrator.hbm.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="19" selection-start="1041" selection-end="1041" vertical-scroll-proportion="0.29525223">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WatchExplorer/src/main/java/commons/dao/BaseHibernateDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="36" selection-start="2665" selection-end="2665" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WatchExplorer/src/main/java/application/dao/PlatformAdministratorDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="58" selection-start="1024" selection-end="1024" vertical-scroll-proportion="0.7047478">
           <folding />
         </state>
       </provider>
@@ -826,10 +791,12 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>WatchExplorer:Web exploded</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -877,6 +844,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -896,6 +864,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
+          <last-edited>Web App Libraries</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

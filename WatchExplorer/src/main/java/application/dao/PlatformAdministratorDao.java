@@ -23,7 +23,7 @@ public class PlatformAdministratorDao extends  BaseHibernateDao<PlatformAdminist
 		}
 	}
 	public PlatformAdministrator getAdminByName(String name) {
-		PlatformAdministrator admin = null;
+		PlatformAdministrator admin;
 		Session s = currentSession();
 		Criteria c = s.createCriteria(PlatformAdministrator.class).add(Restrictions.eq("loginName", name));
 		admin = unique(c);

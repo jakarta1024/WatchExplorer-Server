@@ -66,14 +66,13 @@ public class PlatformServiceHelper {
 		try {
 			JSONObject context = new JSONObject();
 			context.put("version", PlatformServiceContext.ServiceVersion.toString());
-			context.put("returnCode", new Integer(returnCode).toString());
+			context.put("returnCode", Integer.toString(returnCode));
 			if (reason != null && !reason.isEmpty()) {
 				context.put("reason", reason);
 			}
 			if (message != null && !message.isEmpty()) {
 				context.put("message", message);
 			}
-			
 			Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 			context.put("timestamp", timestamp.toString());
 			context.put("outputData", outputData);

@@ -238,7 +238,7 @@ public class PlatformServiceContext extends AbstractServiceContext {
 			Boolean page = params.getBoolean("page");
 			List<WatchStore>stores = null;
 			JSONArray a = new JSONArray();
-			if (page == true) {
+			if (page.booleanValue()) {
 				int pn = params.getInt("pn");
 				int pageSize = params.getInt("ps");
 				stores = DAO.listAll(pn, pageSize);

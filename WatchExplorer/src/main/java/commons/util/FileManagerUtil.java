@@ -10,11 +10,11 @@ public class FileManagerUtil {
 	public static File createFile(String directory, String fileName) {
 		File folder = new File(directory);
 		
-		if (folder.exists() == false) {
+		if (!folder.exists()) {
 			folder.mkdirs();
 		}
 		File file = new File(folder,fileName);
-		if (file.exists() == false) {
+		if (!file.exists()) {
 			try {
 				file.createNewFile();
 			}catch(Exception e) {
